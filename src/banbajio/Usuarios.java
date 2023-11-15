@@ -3,6 +3,7 @@ package banbajio;
 import Listas.Lista_User;
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 public class Usuarios extends javax.swing.JFrame 
 {
@@ -15,13 +16,21 @@ public class Usuarios extends javax.swing.JFrame
         btnRegistrar.requestFocus();
         
         this.lista = lista;
+        
+        hidePanel(Panel_Registro, false);
     }
-
+    
+    public void hidePanel(JPanel panel, boolean state)
+    {
+        panel.setVisible(state);
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         Panel_IniciarSesion = new javax.swing.JPanel();
+        btnGotoRegister = new javax.swing.JButton();
         Panel_Registro = new javax.swing.JPanel();
         lblTitulo = new javax.swing.JLabel();
         lblUser = new javax.swing.JLabel();
@@ -44,21 +53,36 @@ public class Usuarios extends javax.swing.JFrame
         txtConfirmPass = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(767, 600));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Panel_IniciarSesion.setBackground(new java.awt.Color(183, 112, 255));
         Panel_IniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        btnGotoRegister.setText("Registrarse");
+        btnGotoRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGotoRegisterActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout Panel_IniciarSesionLayout = new javax.swing.GroupLayout(Panel_IniciarSesion);
         Panel_IniciarSesion.setLayout(Panel_IniciarSesionLayout);
         Panel_IniciarSesionLayout.setHorizontalGroup(
             Panel_IniciarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 379, Short.MAX_VALUE)
+            .addGroup(Panel_IniciarSesionLayout.createSequentialGroup()
+                .addGap(145, 145, 145)
+                .addComponent(btnGotoRegister)
+                .addContainerGap(159, Short.MAX_VALUE))
         );
         Panel_IniciarSesionLayout.setVerticalGroup(
             Panel_IniciarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_IniciarSesionLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnGotoRegister)
+                .addGap(122, 122, 122))
         );
+
+        getContentPane().add(Panel_IniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 600));
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         lblTitulo.setText("Registro");
@@ -249,7 +273,7 @@ public class Usuarios extends javax.swing.JFrame
                         .addGroup(Panel_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtUserRegister)
                             .addComponent(txtAccount)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
+                            .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
                             .addComponent(txtPassRegister)
                             .addComponent(txtConfirmPass))))
                 .addGap(25, 25, 25))
@@ -297,29 +321,17 @@ public class Usuarios extends javax.swing.JFrame
                         .addGap(18, 18, 18)
                         .addComponent(btnIniciar))
                     .addComponent(lblPassword))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(116, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(Panel_IniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Panel_Registro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel_IniciarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(Panel_Registro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(Panel_Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
-        
+        hidePanel(Panel_IniciarSesion, true);
+        hidePanel(Panel_Registro, false);
     }//GEN-LAST:event_btnIniciarActionPerformed
 
     private void txtUserRegisterFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUserRegisterFocusGained
@@ -366,7 +378,15 @@ public class Usuarios extends javax.swing.JFrame
         lista.addData(user, account, email, password);
         JOptionPane.showMessageDialog(this, "Se ha agregado el usuario", "Registro exitoso", JOptionPane.INFORMATION_MESSAGE);
         clean();
+        
+        hidePanel(Panel_IniciarSesion, true);
+        hidePanel(Panel_Registro, false);
     }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void btnGotoRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGotoRegisterActionPerformed
+        hidePanel(Panel_IniciarSesion, false);
+        hidePanel(Panel_Registro, true);
+    }//GEN-LAST:event_btnGotoRegisterActionPerformed
 
     public boolean verifyPassword()
     {
@@ -398,6 +418,7 @@ public class Usuarios extends javax.swing.JFrame
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Panel_IniciarSesion;
     private javax.swing.JPanel Panel_Registro;
+    private javax.swing.JButton btnGotoRegister;
     private javax.swing.JButton btnIniciar;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JLabel lblConfirmPassword;
