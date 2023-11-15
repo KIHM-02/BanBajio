@@ -31,6 +31,7 @@ public class Usuarios extends javax.swing.JFrame
 
         Panel_IniciarSesion = new javax.swing.JPanel();
         btnGotoRegister = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         Panel_Registro = new javax.swing.JPanel();
         lblTitulo = new javax.swing.JLabel();
         lblUser = new javax.swing.JLabel();
@@ -65,19 +66,25 @@ public class Usuarios extends javax.swing.JFrame
             }
         });
 
+        jLabel1.setText("Iniciar sesion");
+
         javax.swing.GroupLayout Panel_IniciarSesionLayout = new javax.swing.GroupLayout(Panel_IniciarSesion);
         Panel_IniciarSesion.setLayout(Panel_IniciarSesionLayout);
         Panel_IniciarSesionLayout.setHorizontalGroup(
             Panel_IniciarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Panel_IniciarSesionLayout.createSequentialGroup()
                 .addGap(145, 145, 145)
-                .addComponent(btnGotoRegister)
+                .addGroup(Panel_IniciarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(btnGotoRegister))
                 .addContainerGap(159, Short.MAX_VALUE))
         );
         Panel_IniciarSesionLayout.setVerticalGroup(
             Panel_IniciarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_IniciarSesionLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(33, 33, 33)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 406, Short.MAX_VALUE)
                 .addComponent(btnGotoRegister)
                 .addGap(122, 122, 122))
         );
@@ -421,6 +428,7 @@ public class Usuarios extends javax.swing.JFrame
     private javax.swing.JButton btnGotoRegister;
     private javax.swing.JButton btnIniciar;
     private javax.swing.JButton btnRegistrar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblConfirmPassword;
     private javax.swing.JLabel lblCorreoUsuario;
     private javax.swing.JLabel lblNumTarjeta;
