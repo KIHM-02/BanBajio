@@ -1,14 +1,20 @@
 package banbajio;
 
+import Listas.Lista_User;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 public class Usuarios extends javax.swing.JFrame 
 {
-    public Usuarios() 
+    protected Lista_User lista;
+    
+    public Usuarios(Lista_User lista) 
     {
         initComponents();
         this.setLocationRelativeTo(null);
         btnRegistrar.requestFocus();
+        
+        this.lista = lista;
     }
 
     @SuppressWarnings("unchecked")
@@ -32,13 +38,13 @@ public class Usuarios extends javax.swing.JFrame
         txtUserRegister = new javax.swing.JTextField();
         txtAccount = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
+        lblTexto = new javax.swing.JLabel();
         btnIniciar = new javax.swing.JButton();
         txtPassRegister = new javax.swing.JPasswordField();
         txtConfirmPass = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(916, 600));
+        setPreferredSize(new java.awt.Dimension(767, 600));
 
         Panel_IniciarSesion.setBackground(new java.awt.Color(183, 112, 255));
         Panel_IniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -47,7 +53,7 @@ public class Usuarios extends javax.swing.JFrame
         Panel_IniciarSesion.setLayout(Panel_IniciarSesionLayout);
         Panel_IniciarSesionLayout.setHorizontalGroup(
             Panel_IniciarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 506, Short.MAX_VALUE)
+            .addGap(0, 379, Short.MAX_VALUE)
         );
         Panel_IniciarSesionLayout.setVerticalGroup(
             Panel_IniciarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,6 +143,11 @@ public class Usuarios extends javax.swing.JFrame
         btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrar.setText("Registrar");
         btnRegistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
 
         txtUserRegister.setForeground(new java.awt.Color(153, 153, 153));
         txtUserRegister.setText("Usuario cuenta");
@@ -162,8 +173,8 @@ public class Usuarios extends javax.swing.JFrame
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel7.setText("¿Ya tienes una cuenta? Inicia sesión");
+        lblTexto.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblTexto.setText("¿Ya tienes una cuenta? Inicia sesión");
 
         btnIniciar.setBackground(new java.awt.Color(204, 153, 255));
         btnIniciar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -197,9 +208,21 @@ public class Usuarios extends javax.swing.JFrame
         Panel_RegistroLayout.setHorizontalGroup(
             Panel_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Panel_RegistroLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
                 .addGroup(Panel_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_RegistroLayout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addGroup(Panel_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_RegistroLayout.createSequentialGroup()
+                                .addComponent(btnIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(77, 77, 77))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_RegistroLayout.createSequentialGroup()
+                                .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_RegistroLayout.createSequentialGroup()
+                                .addComponent(lblTitulo)
+                                .addGap(105, 105, 105))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_RegistroLayout.createSequentialGroup()
+                        .addGap(25, 25, 25)
                         .addGroup(Panel_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(Panel_RegistroLayout.createSequentialGroup()
                                 .addComponent(lblConfirmPassword)
@@ -226,26 +249,14 @@ public class Usuarios extends javax.swing.JFrame
                         .addGroup(Panel_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtUserRegister)
                             .addComponent(txtAccount)
-                            .addComponent(txtEmail)
+                            .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
                             .addComponent(txtPassRegister)
-                            .addComponent(txtConfirmPass)))
-                    .addGroup(Panel_RegistroLayout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(jLabel7)
-                        .addGap(45, 45, 45))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_RegistroLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(Panel_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_RegistroLayout.createSequentialGroup()
-                                .addComponent(btnIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(77, 77, 77))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_RegistroLayout.createSequentialGroup()
-                                .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_RegistroLayout.createSequentialGroup()
-                                .addComponent(lblTitulo)
-                                .addGap(105, 105, 105)))))
-                .addGap(40, 40, 40))
+                            .addComponent(txtConfirmPass))))
+                .addGap(25, 25, 25))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_RegistroLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblTexto)
+                .addGap(69, 69, 69))
         );
         Panel_RegistroLayout.setVerticalGroup(
             Panel_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -282,11 +293,11 @@ public class Usuarios extends javax.swing.JFrame
                         .addGap(35, 35, 35)
                         .addComponent(btnRegistrar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel7)
+                        .addComponent(lblTexto)
                         .addGap(18, 18, 18)
                         .addComponent(btnIniciar))
                     .addComponent(lblPassword))
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -294,16 +305,14 @@ public class Usuarios extends javax.swing.JFrame
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(Panel_IniciarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Panel_IniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Panel_Registro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(Panel_Registro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Panel_IniciarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(Panel_Registro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(Panel_Registro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -320,34 +329,82 @@ public class Usuarios extends javax.swing.JFrame
 
     private void txtAccountFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAccountFocusGained
         txtAccount.setText("");
-        txtUserRegister.setForeground(Color.black);
+        txtAccount.setForeground(Color.black);
     }//GEN-LAST:event_txtAccountFocusGained
 
     private void txtEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusGained
         txtEmail.setText("");
-        txtUserRegister.setForeground(Color.black);
+        txtEmail.setForeground(Color.black);
     }//GEN-LAST:event_txtEmailFocusGained
 
     private void txtPassRegisterFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPassRegisterFocusGained
         txtPassRegister.setText("");
-        txtUserRegister.setForeground(Color.black);
+        txtPassRegister.setForeground(Color.black);
     }//GEN-LAST:event_txtPassRegisterFocusGained
 
     private void txtConfirmPassFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtConfirmPassFocusGained
         txtConfirmPass.setText("");
-        txtUserRegister.setForeground(Color.black);
+        txtConfirmPass.setForeground(Color.black);
     }//GEN-LAST:event_txtConfirmPassFocusGained
 
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        String user, account, email, password;
+        
+        user = txtUserRegister.getText();
+        account = txtAccount.getText();
+        email = txtEmail.getText();
+        
+        if(!verifyPassword())
+        {
+            JOptionPane.showMessageDialog(this, "Las contraseñas son incorrectas", "Contraseña", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+            
+        
+        password = String.valueOf(txtPassRegister.getPassword());
+        
+        lista.addData(user, account, email, password);
+        JOptionPane.showMessageDialog(this, "Se ha agregado el usuario", "Registro exitoso", JOptionPane.INFORMATION_MESSAGE);
+        clean();
+    }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    public boolean verifyPassword()
+    {
+        String pwd, confirmPwd;
+        
+        pwd = String.valueOf(txtPassRegister.getPassword());
+        confirmPwd = String.valueOf(txtConfirmPass.getPassword());
+        
+        if(pwd.equals(confirmPwd))
+            return true;
+        return false;
+    }
+    
+    public void clean()
+    {
+        txtUserRegister.setText("Usuario cuenta");
+        txtAccount.setText("Cuenta Bancaria");
+        txtEmail.setText("Correo de usuario");
+        txtPassRegister.setText("abc");
+        txtConfirmPass.setText("abc");
+        
+        txtUserRegister.setForeground(new Color(153, 153, 153));
+        txtAccount.setForeground(new Color(153, 153, 153));
+        txtEmail.setForeground(new Color(153, 153, 153));
+        txtPassRegister.setForeground(new Color(153, 153, 153));
+        txtConfirmPass.setForeground(new Color(153, 153, 153));
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Panel_IniciarSesion;
     private javax.swing.JPanel Panel_Registro;
     private javax.swing.JButton btnIniciar;
     private javax.swing.JButton btnRegistrar;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel lblConfirmPassword;
     private javax.swing.JLabel lblCorreoUsuario;
     private javax.swing.JLabel lblNumTarjeta;
     private javax.swing.JLabel lblPassword;
+    private javax.swing.JLabel lblTexto;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblUser;
     private javax.swing.JPanel panelEtiqueta;
