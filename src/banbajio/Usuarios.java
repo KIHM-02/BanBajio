@@ -541,6 +541,8 @@ public class Usuarios extends javax.swing.JFrame
                 .addGap(26, 26, 26))
         );
 
+        Lblicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/BANCA.png"))); // NOI18N
+
         javax.swing.GroupLayout Panel_Fondo_DerechoLayout = new javax.swing.GroupLayout(Panel_Fondo_Derecho);
         Panel_Fondo_Derecho.setLayout(Panel_Fondo_DerechoLayout);
         Panel_Fondo_DerechoLayout.setHorizontalGroup(
@@ -553,8 +555,9 @@ public class Usuarios extends javax.swing.JFrame
                     .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(Panel_Fondo_DerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_Fondo_DerechoLayout.createSequentialGroup()
-                    .addGap(0, 322, Short.MAX_VALUE)
-                    .addComponent(Lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addContainerGap(67, Short.MAX_VALUE)
+                    .addComponent(Lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(49, 49, 49)))
         );
         Panel_Fondo_DerechoLayout.setVerticalGroup(
             Panel_Fondo_DerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -566,9 +569,9 @@ public class Usuarios extends javax.swing.JFrame
                     .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(Panel_Fondo_DerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_Fondo_DerechoLayout.createSequentialGroup()
-                    .addContainerGap(29, Short.MAX_VALUE)
-                    .addComponent(Lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap()))
+                    .addContainerGap(156, Short.MAX_VALUE)
+                    .addComponent(Lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(189, 189, 189)))
         );
 
         getContentPane().add(Panel_Fondo_Derecho, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 350, 600));
