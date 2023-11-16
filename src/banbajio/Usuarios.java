@@ -15,7 +15,7 @@ public class Usuarios extends javax.swing.JFrame
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        btnRegistrar.requestFocus();
+        btnLogin.requestFocus();
         
         this.lista = lista;
         
@@ -204,12 +204,6 @@ public class Usuarios extends javax.swing.JFrame
             .addGroup(Panel_InicioSesionLayout.createSequentialGroup()
                 .addGroup(Panel_InicioSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Panel_InicioSesionLayout.createSequentialGroup()
-                        .addGap(99, 99, 99)
-                        .addComponent(btnRegistrate, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(Panel_InicioSesionLayout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(jLabel3))
-                    .addGroup(Panel_InicioSesionLayout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addGroup(Panel_InicioSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(Panel_InicioSesionLayout.createSequentialGroup()
@@ -221,12 +215,21 @@ public class Usuarios extends javax.swing.JFrame
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(panelEtiqueta9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(Panel_InicioSesionLayout.createSequentialGroup()
-                        .addGap(101, 101, 101)
-                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(Panel_InicioSesionLayout.createSequentialGroup()
                         .addGap(115, 115, 115)
                         .addComponent(jLabel4)))
                 .addContainerGap(32, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_InicioSesionLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(Panel_InicioSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_InicioSesionLayout.createSequentialGroup()
+                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(94, 94, 94))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_InicioSesionLayout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(59, 59, 59))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_InicioSesionLayout.createSequentialGroup()
+                        .addComponent(btnRegistrate, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(96, 96, 96))))
         );
         Panel_InicioSesionLayout.setVerticalGroup(
             Panel_InicioSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,11 +246,11 @@ public class Usuarios extends javax.swing.JFrame
                     .addComponent(panelEtiqueta10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 188, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRegistrate, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
+                .addGap(30, 30, 30))
         );
 
         lblicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/logotipo.png"))); // NOI18N
@@ -542,7 +545,7 @@ public class Usuarios extends javax.swing.JFrame
         Panel_Fondo_Derecho.setLayout(Panel_Fondo_DerechoLayout);
         Panel_Fondo_DerechoLayout.setHorizontalGroup(
             Panel_Fondo_DerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 373, Short.MAX_VALUE)
+            .addGap(0, 370, Short.MAX_VALUE)
             .addGroup(Panel_Fondo_DerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(Panel_Fondo_DerechoLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -550,8 +553,8 @@ public class Usuarios extends javax.swing.JFrame
                     .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(Panel_Fondo_DerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_Fondo_DerechoLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(Lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGap(0, 322, Short.MAX_VALUE)
+                    .addComponent(Lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         Panel_Fondo_DerechoLayout.setVerticalGroup(
             Panel_Fondo_DerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -562,9 +565,9 @@ public class Usuarios extends javax.swing.JFrame
                     .addComponent(Panel_Registro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(Panel_Fondo_DerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(Panel_Fondo_DerechoLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(Lblicon, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_Fondo_DerechoLayout.createSequentialGroup()
+                    .addContainerGap(29, Short.MAX_VALUE)
+                    .addComponent(Lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap()))
         );
 
@@ -631,6 +634,7 @@ public class Usuarios extends javax.swing.JFrame
         Panel_Registro.setVisible(true);
         PanelFondo.setVisible(true);
         Panel_InicioSesion.setVisible(false);
+        btnRegistrar.setRequestFocusEnabled(true);
     }//GEN-LAST:event_btnRegistrateActionPerformed
 
     private void txtUserLoginFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUserLoginFocusGained
