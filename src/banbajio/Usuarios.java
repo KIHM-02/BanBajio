@@ -14,12 +14,13 @@ public class Usuarios extends javax.swing.JFrame
     {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setResizable(false);
         btnRegistrar.requestFocus();
         
         this.lista = lista;
         
         hidePanel(Panel_Registro, false);
-        
+       
     }
     
     public void hidePanel(JPanel panel, boolean state)
@@ -45,6 +46,8 @@ public class Usuarios extends javax.swing.JFrame
         panelEtiqueta10 = new javax.swing.JPanel();
         txtPassLogin = new javax.swing.JPasswordField();
         btnLogin = new javax.swing.JButton();
+        lblicon = new javax.swing.JLabel();
+        Panel_Fondo_Derecho = new javax.swing.JPanel();
         Panel_Registro = new javax.swing.JPanel();
         lblUser = new javax.swing.JLabel();
         lblNumTarjeta = new javax.swing.JLabel();
@@ -65,6 +68,7 @@ public class Usuarios extends javax.swing.JFrame
         jLabel1 = new javax.swing.JLabel();
         btnIniciarSesion = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        Lblicon = new javax.swing.JLabel();
 
         panelEtiqueta5.setBackground(new java.awt.Color(204, 153, 255));
 
@@ -246,15 +250,27 @@ public class Usuarios extends javax.swing.JFrame
                 .addGap(24, 24, 24))
         );
 
+        lblicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/logotipo.png"))); // NOI18N
+
         javax.swing.GroupLayout PanelFondoLayout = new javax.swing.GroupLayout(PanelFondo);
         PanelFondo.setLayout(PanelFondoLayout);
         PanelFondoLayout.setHorizontalGroup(
             PanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Panel_InicioSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(PanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelFondoLayout.createSequentialGroup()
+                    .addContainerGap(79, Short.MAX_VALUE)
+                    .addComponent(lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
         );
         PanelFondoLayout.setVerticalGroup(
             PanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Panel_InicioSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(PanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelFondoLayout.createSequentialGroup()
+                    .addContainerGap(159, Short.MAX_VALUE)
+                    .addComponent(lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(193, Short.MAX_VALUE)))
         );
 
         getContentPane().add(PanelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 600));
@@ -297,7 +313,7 @@ public class Usuarios extends javax.swing.JFrame
         panelEtiquetaLayout.setHorizontalGroup(
             panelEtiquetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEtiquetaLayout.createSequentialGroup()
-                .addGap(0, 15, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(txtAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panelEtiquetaLayout.setVerticalGroup(
@@ -329,7 +345,7 @@ public class Usuarios extends javax.swing.JFrame
         panelEtiqueta3Layout.setHorizontalGroup(
             panelEtiqueta3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEtiqueta3Layout.createSequentialGroup()
-                .addGap(0, 15, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(txtUserRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panelEtiqueta3Layout.setVerticalGroup(
@@ -356,7 +372,7 @@ public class Usuarios extends javax.swing.JFrame
         panelEtiqueta4Layout.setHorizontalGroup(
             panelEtiqueta4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEtiqueta4Layout.createSequentialGroup()
-                .addGap(0, 15, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panelEtiqueta4Layout.setVerticalGroup(
@@ -383,8 +399,9 @@ public class Usuarios extends javax.swing.JFrame
         panelEtiqueta7Layout.setHorizontalGroup(
             panelEtiqueta7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEtiqueta7Layout.createSequentialGroup()
-                .addGap(0, 15, Short.MAX_VALUE)
-                .addComponent(txtConfirmPass, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtConfirmPass, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
         );
         panelEtiqueta7Layout.setVerticalGroup(
             panelEtiqueta7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -410,7 +427,7 @@ public class Usuarios extends javax.swing.JFrame
         panelEtiqueta8Layout.setHorizontalGroup(
             panelEtiqueta8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEtiqueta8Layout.createSequentialGroup()
-                .addGap(0, 15, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(txtPassRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panelEtiqueta8Layout.setVerticalGroup(
@@ -445,30 +462,30 @@ public class Usuarios extends javax.swing.JFrame
                 .addContainerGap()
                 .addGroup(Panel_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Panel_RegistroLayout.createSequentialGroup()
-                        .addGroup(Panel_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(Panel_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(Panel_RegistroLayout.createSequentialGroup()
                                 .addComponent(lblNumTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(panelEtiqueta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(panelEtiqueta, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(Panel_RegistroLayout.createSequentialGroup()
                                 .addComponent(lblUser)
                                 .addGap(18, 18, 18)
-                                .addComponent(panelEtiqueta3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(35, Short.MAX_VALUE))
+                                .addComponent(panelEtiqueta3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                        .addContainerGap(69, Short.MAX_VALUE))
                     .addGroup(Panel_RegistroLayout.createSequentialGroup()
-                        .addGroup(Panel_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(Panel_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(Panel_RegistroLayout.createSequentialGroup()
                                 .addComponent(lblCorreoUsuario)
                                 .addGap(18, 18, 18)
-                                .addComponent(panelEtiqueta4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(panelEtiqueta4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                             .addGroup(Panel_RegistroLayout.createSequentialGroup()
                                 .addComponent(lblPassword)
                                 .addGap(18, 18, 18)
-                                .addComponent(panelEtiqueta8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(panelEtiqueta8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                             .addGroup(Panel_RegistroLayout.createSequentialGroup()
                                 .addComponent(lblConfirmPassword)
                                 .addGap(18, 18, 18)
-                                .addComponent(panelEtiqueta7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(panelEtiqueta7, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_RegistroLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -521,7 +538,37 @@ public class Usuarios extends javax.swing.JFrame
                 .addGap(26, 26, 26))
         );
 
-        getContentPane().add(Panel_Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 370, 600));
+        javax.swing.GroupLayout Panel_Fondo_DerechoLayout = new javax.swing.GroupLayout(Panel_Fondo_Derecho);
+        Panel_Fondo_Derecho.setLayout(Panel_Fondo_DerechoLayout);
+        Panel_Fondo_DerechoLayout.setHorizontalGroup(
+            Panel_Fondo_DerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 373, Short.MAX_VALUE)
+            .addGroup(Panel_Fondo_DerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(Panel_Fondo_DerechoLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(Panel_Registro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(Panel_Fondo_DerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_Fondo_DerechoLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(Lblicon, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        Panel_Fondo_DerechoLayout.setVerticalGroup(
+            Panel_Fondo_DerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(Panel_Fondo_DerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(Panel_Fondo_DerechoLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(Panel_Registro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(Panel_Fondo_DerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(Panel_Fondo_DerechoLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(Lblicon, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+
+        getContentPane().add(Panel_Fondo_Derecho, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 350, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -567,6 +614,7 @@ public class Usuarios extends javax.swing.JFrame
         clean();
         hidePanel(PanelFondo, true);
         hidePanel(Panel_Registro, false);
+        hidePanel(Panel_InicioSesion, true); 
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void txtUserRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserRegisterActionPerformed
@@ -631,7 +679,9 @@ public class Usuarios extends javax.swing.JFrame
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Lblicon;
     private javax.swing.JPanel PanelFondo;
+    private javax.swing.JPanel Panel_Fondo_Derecho;
     private javax.swing.JPanel Panel_InicioSesion;
     private javax.swing.JPanel Panel_Registro;
     private javax.swing.JButton btnIniciarSesion;
@@ -649,6 +699,7 @@ public class Usuarios extends javax.swing.JFrame
     private javax.swing.JLabel lblPassword1;
     private javax.swing.JLabel lblUser;
     private javax.swing.JLabel lblUser1;
+    private javax.swing.JLabel lblicon;
     private javax.swing.JPanel panelEtiqueta;
     private javax.swing.JPanel panelEtiqueta10;
     private javax.swing.JPanel panelEtiqueta3;
