@@ -32,6 +32,29 @@ public class Lista_User
              nuevo = new Nodo_User(null, user, account, email, pwd, inicio);
              inicio.setAnterior(nuevo);
              inicio = nuevo;
+         }   
+     }
+     
+     
+     public boolean userExists(String username){
+         Nodo_User temp = inicio;
+         while(temp != null){
+             if(temp.getUser().equals(username)){
+                 return true;
+             }
+             temp = temp.getSiguiente();
          }
+         return false;
+     }
+     
+     public String getPasswordForUser(String username){
+         Nodo_User temp = inicio;
+         while(temp != null){
+             if(temp.getUser().equals(username)){
+                 return temp.getPassword();
+             }
+             temp = temp.getSiguiente();
+         }
+         return null;
      }
 }

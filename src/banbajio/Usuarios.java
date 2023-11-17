@@ -655,7 +655,23 @@ public class Usuarios extends javax.swing.JFrame
     }//GEN-LAST:event_txtPassLoginFocusGained
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        // TODO add your handling code here:
+        String enteredUser = txtUserLogin.getText();
+        String enteredPassword = String.valueOf(txtPassLogin.getPassword());
+        
+        boolean userExists = lista.userExists(enteredUser);
+        if(userExists){
+            String storedPassword = lista.getPasswordForUser(enteredUser);
+            
+            if(storedPassword.equals(enteredPassword)){
+                JOptionPane.showMessageDialog(this, "Inicio de sesion exitoso","Acceso Permitido",JOptionPane.INFORMATION_MESSAGE);
+                
+                Menu menu = new Menu();
+                menu.setVisible(true);
+                this.dispose();      
+            }else{
+                JOptionPane.showMessageDialog(this, "Los datos ingresados son incorrectos, verifica por favor", "Acceso Denegado", JOptionPane.WARNING_MESSAGE);
+            }
+        }
     }//GEN-LAST:event_btnLoginActionPerformed
 
     public boolean verifyPassword()
