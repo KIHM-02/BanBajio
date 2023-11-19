@@ -14,7 +14,7 @@ public class Menu extends javax.swing.JFrame {
      * Creates new form menu
      */
     public Menu() {
-        initComponents();
+        initComponents();  
     }
 
     /**
@@ -26,21 +26,167 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        btn_app = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        btn_menu = new javax.swing.JButton();
+        btn_usuario = new javax.swing.JButton();
+        btn_cuentabanco = new javax.swing.JButton();
+        btn_inversiones = new javax.swing.JButton();
+        btn_prestamos = new javax.swing.JButton();
+        btn_conversion = new javax.swing.JButton();
+        panel_content = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(183, 112, 255));
+
+        btn_app.setBackground(new java.awt.Color(255, 51, 102));
+        btn_app.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_app.setForeground(new java.awt.Color(255, 255, 255));
+        btn_app.setText("Información de la aplicación");
+        btn_app.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/logotipo.png"))); // NOI18N
+
+        btn_menu.setBackground(new java.awt.Color(255, 51, 102));
+        btn_menu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_menu.setForeground(new java.awt.Color(255, 255, 255));
+        btn_menu.setText("Menú principal");
+        btn_menu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        btn_usuario.setBackground(new java.awt.Color(255, 51, 102));
+        btn_usuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_usuario.setForeground(new java.awt.Color(255, 255, 255));
+        btn_usuario.setText("Información de usuario");
+        btn_usuario.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        btn_cuentabanco.setBackground(new java.awt.Color(255, 51, 102));
+        btn_cuentabanco.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_cuentabanco.setForeground(new java.awt.Color(255, 255, 255));
+        btn_cuentabanco.setText("Información de cuenta bancaria");
+        btn_cuentabanco.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        btn_inversiones.setBackground(new java.awt.Color(255, 51, 102));
+        btn_inversiones.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_inversiones.setForeground(new java.awt.Color(255, 255, 255));
+        btn_inversiones.setText("Inversiones");
+        btn_inversiones.setAutoscrolls(true);
+        btn_inversiones.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        btn_prestamos.setBackground(new java.awt.Color(255, 51, 102));
+        btn_prestamos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_prestamos.setForeground(new java.awt.Color(255, 255, 255));
+        btn_prestamos.setText("Préstamos");
+        btn_prestamos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        btn_conversion.setBackground(new java.awt.Color(255, 51, 102));
+        btn_conversion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_conversion.setForeground(new java.awt.Color(255, 255, 255));
+        btn_conversion.setText("Conversión de monedas");
+        btn_conversion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btn_conversion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_conversionActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btn_app, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(50, Short.MAX_VALUE))
+            .addComponent(btn_menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btn_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btn_cuentabanco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btn_inversiones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btn_prestamos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btn_conversion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_cuentabanco, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_inversiones, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_prestamos, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_conversion, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_app, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
+        );
+
+        panel_content.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout panel_contentLayout = new javax.swing.GroupLayout(panel_content);
+        panel_content.setLayout(panel_contentLayout);
+        panel_contentLayout.setHorizontalGroup(
+            panel_contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 594, Short.MAX_VALUE)
+        );
+        panel_contentLayout.setVerticalGroup(
+            panel_contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 599, Short.MAX_VALUE)
+        );
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel2.setText("Saldo a favor");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setText("$0.00");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panel_content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(221, 221, 221))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(274, 274, 274))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addComponent(panel_content, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_conversionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_conversionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_conversionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +225,17 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_app;
+    private javax.swing.JButton btn_conversion;
+    private javax.swing.JButton btn_cuentabanco;
+    private javax.swing.JButton btn_inversiones;
+    private javax.swing.JButton btn_menu;
+    private javax.swing.JButton btn_prestamos;
+    private javax.swing.JButton btn_usuario;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel panel_content;
     // End of variables declaration//GEN-END:variables
 }
