@@ -1,7 +1,6 @@
 package banbajio;
 
 import Listas.Lista_User;
-import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -667,7 +666,8 @@ public class Usuarios extends javax.swing.JFrame
                 
                 Menu menu = new Menu();
                 menu.setVisible(true);
-                this.dispose();      
+                //this.dispose();     
+                this.setVisible(false);
             }else{
                 JOptionPane.showMessageDialog(this, "Los datos ingresados son incorrectos, verifica por favor", "Acceso Denegado", JOptionPane.WARNING_MESSAGE);
             }
