@@ -519,7 +519,7 @@ public class Menu extends javax.swing.JFrame {
         btn_conversion.setBackground(new java.awt.Color(255, 51, 102));
         btn_conversion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn_conversion.setForeground(new java.awt.Color(255, 255, 255));
-        btn_conversion.setText("Conversión de monedas");
+        btn_conversion.setText("Calculadora / Conversor de monedas");
         btn_conversion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btn_conversion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -641,7 +641,8 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_conversionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_conversionActionPerformed
-        // TODO add your handling code here:
+        Herramientas conversion = new Herramientas(this);
+        conversion.setVisible(true);        
     }//GEN-LAST:event_btn_conversionActionPerformed
 
     private void btn_menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_menuActionPerformed
