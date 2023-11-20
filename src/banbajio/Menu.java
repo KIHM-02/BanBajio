@@ -258,7 +258,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel13.setText("Número de tarjeta");
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel14.setText("Código de seguridad (CCV)");
+        jLabel14.setText("Código de seguridad (CVV)");
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel15.setText("Fecha de expiración");
@@ -294,22 +294,20 @@ public class Menu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panel_c_bancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_c_bancoLayout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addGap(18, 18, 18)
-                        .addComponent(txt_num_tarjeta))
-                    .addGroup(panel_c_bancoLayout.createSequentialGroup()
                         .addComponent(jLabel12)
                         .addGap(18, 18, 18)
                         .addComponent(combox_tipo_tarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panel_c_bancoLayout.createSequentialGroup()
-                        .addComponent(jLabel14)
+                        .addGroup(panel_c_bancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel13))
                         .addGap(18, 18, 18)
-                        .addComponent(txt_ccv))
-                    .addGroup(panel_c_bancoLayout.createSequentialGroup()
-                        .addComponent(jLabel15)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel16)))
-                .addContainerGap(84, Short.MAX_VALUE))
+                        .addGroup(panel_c_bancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_num_tarjeta)
+                            .addComponent(jLabel16)
+                            .addComponent(txt_ccv))))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         panel_c_bancoLayout.setVerticalGroup(
             panel_c_bancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

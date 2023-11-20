@@ -470,27 +470,25 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="txt_num_tarjeta" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="combox_tipo_tarjeta" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="txt_ccv" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="txt_num_tarjeta" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                              <Component id="txt_ccv" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="84" max="32767" attributes="0"/>
+                  <EmptySpace pref="77" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -553,7 +551,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="C&#xf3;digo de seguridad (CCV)"/>
+            <Property name="text" type="java.lang.String" value="C&#xf3;digo de seguridad (CVV)"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel15">
