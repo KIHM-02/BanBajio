@@ -1,5 +1,6 @@
 package banbajio;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class Menu extends javax.swing.JFrame {
@@ -7,7 +8,9 @@ public class Menu extends javax.swing.JFrame {
     /**
      * Creates new form menu
      */
-    public Menu() {
+    private Usuarios usuarios; 
+    
+    public Menu(Usuarios usuarios) {
         initComponents();
         this.setLocationRelativeTo(null);
         
@@ -15,6 +18,8 @@ public class Menu extends javax.swing.JFrame {
         hidePanel(panel_usuario, false);
         hidePanel(panel_c_banco, false);
         hidePanel(panel_inversion, false);
+        
+        this.usuarios = usuarios;
     }
     
     public void hidePanel(JPanel panel, boolean state)
@@ -460,6 +465,11 @@ public class Menu extends javax.swing.JFrame {
         btn_app.setForeground(new java.awt.Color(255, 255, 255));
         btn_app.setText("Información de la aplicación");
         btn_app.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btn_app.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_appActionPerformed(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/logotipo.png"))); // NOI18N
 
@@ -620,8 +630,18 @@ public class Menu extends javax.swing.JFrame {
         jMenu.add(btnSalir);
 
         btnDevInfo.setText("Desarrolladores");
+        btnDevInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDevInfoActionPerformed(evt);
+            }
+        });
 
         btnInformacion.setText("Informacion");
+        btnInformacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInformacionActionPerformed(evt);
+            }
+        });
         btnDevInfo.add(btnInformacion);
 
         jMenu.add(btnDevInfo);
@@ -676,8 +696,32 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCloseActionPerformed
 
     private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
+        this.dispose();
+        usuarios.setVisible(true);
         
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
+
+    private void btn_appActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_appActionPerformed
+        String mensaje = "<html><div style='text-aling: center;'>"+
+                "<h1>Informacion de la Aplicación</h1><br/>"+
+                "<p>Este proyecto está realizado con proposito academico sin intencion de lucro por el instituto de Ingenierias CETI.</p"+
+                "<p>Quejas y Sugerencias comuniquece con @CETI.</p></div></html>";
+        
+        JOptionPane.showMessageDialog(null,mensaje, "Información de la Aplicación",JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_btn_appActionPerformed
+
+    private void btnDevInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDevInfoActionPerformed
+        //SORRY
+    }//GEN-LAST:event_btnDevInfoActionPerformed
+
+    private void btnInformacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInformacionActionPerformed
+        String mensaje = "<html><div style='text-aling: center;'>"+
+                "<h1>Desarrolladores</h1><br/>"+
+                "<p>Programadores: Claudio Lara: 22310545, Kevin Huerta: 22310411, Randal Rojas: 22310438, Jorge Petterson: 22310359.</p"+
+                "<p>Grupo: 3-P | CETI Colomos 2023 | Proyecto tercer parcial | Programación Orientada a Eventos.</p></div></html>";
+        
+        JOptionPane.showMessageDialog(null,mensaje, "Información",JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_btnInformacionActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
