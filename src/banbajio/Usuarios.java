@@ -1,6 +1,7 @@
 package banbajio;
 
 import Listas.Lista_User;
+import Listas.Pila_Tarjeta;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -8,8 +9,10 @@ import javax.swing.JPanel;
 public class Usuarios extends javax.swing.JFrame 
 {
     protected Lista_User lista;
+    protected Pila_Tarjeta pila;
+    private int id;
     
-    public Usuarios(Lista_User lista) 
+    public Usuarios(Lista_User lista, Pila_Tarjeta pila) 
     {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -17,6 +20,7 @@ public class Usuarios extends javax.swing.JFrame
         btnLogin.requestFocus();
         
         this.lista = lista;
+        this.pila = pila;
         
         hidePanel(Panel_Registro, false);
        
@@ -555,7 +559,6 @@ public class Usuarios extends javax.swing.JFrame
     }//GEN-LAST:event_txtConfirmPassFocusGained
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        int id;
         String user, email, password;
         user = txtUserRegister.getText();
         email = txtEmail.getText();
@@ -621,7 +624,7 @@ public class Usuarios extends javax.swing.JFrame
             if(storedPassword.equals(enteredPassword)){
                 JOptionPane.showMessageDialog(this, "Inicio de sesion exitoso","Acceso Permitido",JOptionPane.INFORMATION_MESSAGE);
                 
-                Menu menu = new Menu(this);
+                Menu menu = new Menu(this, pila, id);
                 menu.setVisible(true);
                 //this.dispose();     
                 this.setVisible(false);
