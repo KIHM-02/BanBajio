@@ -10,8 +10,8 @@ public class Main
         Lista_User lista = new Lista_User();
         Pila_Tarjeta pila = new Pila_Tarjeta();
         
-        lista.addData(lista.getLastUser(), "user", "user@correo.com", "1234");
-        lista.addData(lista.getLastUser(), "user2", "user@correo.com", "1234");
+        lista.addData("user", "user@correo.com", "1234");
+        lista.addData("user2", "user@correo.com", "1234");
         
         Usuarios login = new Usuarios(lista, pila);
         login.setVisible(true);
