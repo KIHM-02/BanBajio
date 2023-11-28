@@ -8,7 +8,9 @@ public class Menu extends javax.swing.JFrame {
     /**
      * Creates new form menu
      */
-    public Menu() {
+    private Usuarios usuarios; 
+    
+    public Menu(Usuarios usuarios) {
         initComponents();
         this.setLocationRelativeTo(null);
         
@@ -16,6 +18,8 @@ public class Menu extends javax.swing.JFrame {
         hidePanel(panel_usuario, false);
         hidePanel(panel_c_banco, false);
         hidePanel(panel_inversion, false);
+        
+        this.usuarios = usuarios;
     }
     
     public void hidePanel(JPanel panel, boolean state)
@@ -692,6 +696,8 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCloseActionPerformed
 
     private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
+        this.dispose();
+        usuarios.setVisible(true);
         
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
 
