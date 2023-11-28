@@ -8,7 +8,8 @@ public class Main
     {
         Lista_User lista = new Lista_User();
         
-        lista.addData("user", "1234", "user@correo.com", "1234");
+        lista.addData(lista.getLastUser(), "user", "user@correo.com", "1234");
+        lista.addData(lista.getLastUser(), "user2", "user@correo.com", "1234");
         
         Usuarios login = new Usuarios(lista);
         login.setVisible(true);

@@ -2,32 +2,33 @@ package Listas;
 
 public class Nodo_User 
 {
-    private String user, bankAccount, email, password;
+    private int id;
+    private String user, email, password;
     private Nodo_User siguiente, anterior;
     
-    public Nodo_User (Nodo_User anterior, String user, String account, String email,
+    public Nodo_User (Nodo_User anterior, int id,  String user, String email,
             String pwd, Nodo_User siguiente)
     {
+        this.id = id;
         this.user = user;
-        this.bankAccount = account;
         this.email = email;
         this.password = pwd;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public String getUser() {
         return user;
     }
 
     public void setUser(String user) {
         this.user = user;
-    }
-
-    public String getBankAccount() {
-        return bankAccount;
-    }
-
-    public void setBankAccount(String bankAccount) {
-        this.bankAccount = bankAccount;
     }
 
     public String getEmail() {
