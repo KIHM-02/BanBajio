@@ -570,7 +570,7 @@ public class Usuarios extends javax.swing.JFrame
         
         password = String.valueOf(txtPassRegister.getPassword())
                 ;
-        lista.addData(id, user, email, password);
+        lista.addData(user, email, password);
         
         JOptionPane.showMessageDialog(this, "Se ha agregado el usuario con id "+id, "Registro exitoso", JOptionPane.INFORMATION_MESSAGE);
         clean();

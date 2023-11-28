@@ -2,12 +2,11 @@ package Listas;
 
 public class Lista_User 
 {
-    Nodo_User inicio, ultimo;
+    Nodo_User inicio;
      
     public Lista_User()
     {
         inicio = null;
-        ultimo = null;
     }
      
     public boolean isEmpty()
@@ -17,22 +16,30 @@ public class Lista_User
         return false;
     }
      
-    public void addData(int id, String user, String email, String pwd)
+    public void addData(String user, String email, String pwd) 
     {
+        int id;
+        if (isEmpty()) 
+        {
+            id = 1;  // Si la lista está vacía, asigna ID 1
+        }
+        else 
+        {
+            id = getLastUser() + 1;  // Obtiene el último ID y le suma 1
+        }
+
         Nodo_User nuevo;
-         
-        if(isEmpty())
+        if (isEmpty()) 
         {
             nuevo = new Nodo_User(null, id, user, email, pwd, null);
             inicio = nuevo;
-            ultimo = inicio;
         }
-        else
+        else 
         {
             nuevo = new Nodo_User(null, id, user, email, pwd, inicio);
             inicio.setAnterior(nuevo);
             inicio = nuevo;
-        }   
+        }
     }
    
     public int getLastUser()
@@ -47,6 +54,7 @@ public class Lista_User
                 id++;
                 walker = walker.getSiguiente();
             }
+            id++;
         }
         
         return id;

@@ -13,6 +13,8 @@ public class Nodo_User
         this.user = user;
         this.email = email;
         this.password = pwd;
+        this.siguiente = siguiente;
+        this.anterior = anterior;
     }
 
     public int getId() {
