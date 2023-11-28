@@ -1,5 +1,6 @@
 package banbajio;
 
+import Listas.Pila_Tarjeta;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -9,8 +10,10 @@ public class Menu extends javax.swing.JFrame {
      * Creates new form menu
      */
     private Usuarios usuarios; 
+    protected Pila_Tarjeta pila;
+    private int id;
     
-    public Menu(Usuarios usuarios) {
+    public Menu(Usuarios usuarios, Pila_Tarjeta pila, int id) {
         initComponents();
         this.setLocationRelativeTo(null);
         
@@ -20,6 +23,27 @@ public class Menu extends javax.swing.JFrame {
         hidePanel(panel_inversion, false);
         
         this.usuarios = usuarios;
+        this.pila = pila;
+        this.id = id;
+        
+        verifyCards();
+    }
+    
+    public void verifyCards()
+    {
+        if(!pila.buscartarjeta(id))
+        {
+            btn_usuario.setEnabled(false);
+            btn_inversiones.setEnabled(false);
+            btn_cuentabanco.setEnabled(false);
+            btn_menu.setEnabled(false);
+            btn_prestamos.setEnabled(false);
+            
+            hidePanel(panel_mov, false);
+            hidePanel(panel_usuario, false);
+            hidePanel(panel_c_banco, false);
+            hidePanel(panel_inversion, false);
+        }
     }
     
     public void hidePanel(JPanel panel, boolean state)
@@ -84,6 +108,7 @@ public class Menu extends javax.swing.JFrame {
         btn_inversiones = new javax.swing.JButton();
         btn_prestamos = new javax.swing.JButton();
         btn_conversion = new javax.swing.JButton();
+        btn_conversion1 = new javax.swing.JButton();
         panel_saldo = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -535,6 +560,17 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        btn_conversion1.setBackground(new java.awt.Color(255, 51, 102));
+        btn_conversion1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_conversion1.setForeground(new java.awt.Color(255, 255, 255));
+        btn_conversion1.setText("Agregar Tarjeta");
+        btn_conversion1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btn_conversion1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_conversion1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel_menulatLayout = new javax.swing.GroupLayout(panel_menulat);
         panel_menulat.setLayout(panel_menulatLayout);
         panel_menulatLayout.setHorizontalGroup(
@@ -550,6 +586,7 @@ public class Menu extends javax.swing.JFrame {
             .addComponent(btn_inversiones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_prestamos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_conversion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btn_conversion1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panel_menulatLayout.setVerticalGroup(
             panel_menulatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -568,7 +605,9 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(btn_prestamos, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_conversion, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 201, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_conversion1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 236, Short.MAX_VALUE)
                 .addComponent(btn_app, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
         );
@@ -723,6 +762,10 @@ public class Menu extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null,mensaje, "Información",JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnInformacionActionPerformed
 
+    private void btn_conversion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_conversion1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_conversion1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem btnCerrarSesion;
@@ -736,6 +779,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton btn_agregar_inv1;
     private javax.swing.JButton btn_app;
     private javax.swing.JButton btn_conversion;
+    private javax.swing.JButton btn_conversion1;
     private javax.swing.JButton btn_cuentabanco;
     private javax.swing.JButton btn_eliminar;
     private javax.swing.JButton btn_eliminar_inv;
