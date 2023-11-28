@@ -78,9 +78,9 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="3">
-            <StringItem index="0" value="Peso (Mexicano)."/>
-            <StringItem index="1" value="Euro."/>
-            <StringItem index="2" value="Dolar."/>
+            <StringItem index="0" value="Peso (Mexicano)"/>
+            <StringItem index="1" value="Euro"/>
+            <StringItem index="2" value="Dolar"/>
           </StringArray>
         </Property>
       </Properties>
@@ -102,9 +102,9 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="3">
-            <StringItem index="0" value="Dolar"/>
-            <StringItem index="1" value="Peso (Mexicano)."/>
-            <StringItem index="2" value="Euro"/>
+            <StringItem index="0" value="Peso (Mexicano)"/>
+            <StringItem index="1" value="Euro"/>
+            <StringItem index="2" value="Dolar"/>
           </StringArray>
         </Property>
       </Properties>

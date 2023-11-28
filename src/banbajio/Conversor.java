@@ -19,13 +19,13 @@ public class Conversor extends javax.swing.JInternalFrame {
         btn_agregar_inv = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
 
-        MonedaOrigen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Peso (Mexicano).", "Euro.", "Dolar." }));
+        MonedaOrigen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Peso (Mexicano)", "Euro", "Dolar" }));
 
         jLabel1.setText("Tipo Moneda");
 
         jLabel2.setText("Moneda a cambiar");
 
-        MonedaCambiada.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dolar", "Peso (Mexicano).", "Euro" }));
+        MonedaCambiada.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Peso (Mexicano)", "Euro", "Dolar" }));
 
         txtMonedaCambiada.setEditable(false);
         txtMonedaCambiada.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -115,10 +115,10 @@ public class Conversor extends javax.swing.JInternalFrame {
     private double convertirMoneda(double cantidadOriginal, String MonedaOrigen, String MonedaCambiada){
         double factorConversion = 0.0;
         
-        if(MonedaOrigen.equals("Dolar.")){
-            if(MonedaCambiada.equals("Euro.")){
+        if(MonedaOrigen.equals("Dolar")){
+            if(MonedaCambiada.equals("Euro")){
                 factorConversion = 0.85;
-            }else if(MonedaCambiada.equals("Peso (Mexicano).")){
+            }else if(MonedaCambiada.equals("Peso (Mexicano)")){
                 factorConversion = 17.14;
             }else{
                 factorConversion = 1.0;
@@ -126,12 +126,12 @@ public class Conversor extends javax.swing.JInternalFrame {
         }else if(MonedaOrigen.equals("Euro")){
             if(MonedaCambiada.equals("Dolar")){
                 factorConversion = 1.18;
-            }else if(MonedaCambiada.equals("Peso (Mexicano).")){
+            }else if(MonedaCambiada.equals("Peso (Mexicano)")){
                 factorConversion = 18.75;
             }else{
                 factorConversion = 1.0;
             }
-        }else if(MonedaOrigen.equals("Peso (Mexicano).")){
+        }else if(MonedaOrigen.equals("Peso (Mexicano)")){
             if(MonedaCambiada.equals("Dolar")){
                 factorConversion = 0.058;
             }else if(MonedaCambiada.equals("Euro")){
