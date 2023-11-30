@@ -1,12 +1,16 @@
 package Listas;
 
+import java.util.LinkedList;
+
 public class Nodo_Tarjeta {
+     //LinkedList<Ta> tarjtas = new LinkedList<>(); 
     private String tipo_Tarjeta, numero_Tarjeta, fecha_Off;
     private int id, security_Code;
     private Nodo_Tarjeta siguiente;
 
     public Nodo_Tarjeta(int id, String tipo_Tarjeta, String numero_Tarjeta, 
-            String fecha_Off, int security_Code, Nodo_Tarjeta siguiente){
+            String fecha_Off, int security_Code, Nodo_Tarjeta siguiente)
+    {
         this.tipo_Tarjeta = tipo_Tarjeta;
         this.numero_Tarjeta = numero_Tarjeta;
         this.fecha_Off = fecha_Off;
