@@ -160,11 +160,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Fecha de expiracion"/>
           </Properties>
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt_fecha_OffFocusGained"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_security_Code">
           <Properties>
             <Property name="text" type="java.lang.String" value="Codigo de seguridad"/>
           </Properties>
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt_security_CodeFocusGained"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
@@ -192,6 +198,10 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Telefono"/>
           </Properties>
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt_TelefonoFocusGained"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_TelefonoActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
@@ -204,8 +214,8 @@
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="2">
-                <StringItem index="0" value="TARJETA DE DEBITO"/>
-                <StringItem index="1" value="TARJETA DE CREDITO"/>
+                <StringItem index="0" value="DEBITO"/>
+                <StringItem index="1" value="CREDITO"/>
               </StringArray>
             </Property>
           </Properties>
