@@ -36,7 +36,8 @@ public class Formulario extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         btn_Guardar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        btnCerrarFormulario = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(183, 112, 255));
@@ -48,6 +49,11 @@ public class Formulario extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/logotipo.png"))); // NOI18N
 
         txt_numero_Tarjeta.setText("Numero de tarjeta");
+        txt_numero_Tarjeta.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_numero_TarjetaFocusGained(evt);
+            }
+        });
 
         txt_fecha_Off.setText("Fecha de expiracion");
 
@@ -148,8 +154,17 @@ public class Formulario extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1);
 
-        jMenu1.setText("Regresar");
-        jMenuBar1.add(jMenu1);
+        btnCerrarFormulario.setText("Regresar");
+
+        jMenuItem1.setText("Cerrar");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        btnCerrarFormulario.add(jMenuItem1);
+
+        jMenuBar1.add(btnCerrarFormulario);
 
         setJMenuBar(jMenuBar1);
 
@@ -168,9 +183,19 @@ public class Formulario extends javax.swing.JFrame {
         menu.verifyCards(true);
         dispose();
     }//GEN-LAST:event_btn_GuardarActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void txt_numero_TarjetaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_numero_TarjetaFocusGained
+        txt_numero_Tarjeta.setText("");
+        //txt_numero_Tarjeta.setForeground(Color.black);
+    }//GEN-LAST:event_txt_numero_TarjetaFocusGained
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu btnCerrarFormulario;
     private javax.swing.JButton btn_Guardar;
     private javax.swing.JComboBox<String> cb_tipo_Tarjeta;
     private javax.swing.JLabel jLabel1;
@@ -179,8 +204,8 @@ public class Formulario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txt_Telefono;
     private javax.swing.JTextField txt_fecha_Off;
