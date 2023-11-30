@@ -34,7 +34,7 @@ public class Pila_Tarjeta {
        if(!isEmpty()){
           Nodo_Tarjeta walker = inicio;
           
-          while(walker.getSiguiente() != null || find != true)
+          while(walker.getSiguiente() != null && find == false)
           {
             if(walker.getId() == id)
             {
