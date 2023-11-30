@@ -818,9 +818,9 @@ public class Menu extends javax.swing.JFrame {
         
         if(datos != null)
         {
-            lbl_num_tarjeta.setText(datos[1]);
-            lblFechaExpiracion.setText(datos[2]);
-            lbl_ccv.setText(datos[3]);
+            lbl_num_tarjeta.setText(datos[0]);
+            lblFechaExpiracion.setText(datos[1]);
+            lbl_ccv.setText(datos[2]);
         }
         else
         {
