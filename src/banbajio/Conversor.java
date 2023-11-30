@@ -1,5 +1,7 @@
 package banbajio;
 
+import java.text.DecimalFormat;
+
 public class Conversor extends javax.swing.JInternalFrame {
 
     public Conversor() {
@@ -27,9 +29,12 @@ public class Conversor extends javax.swing.JInternalFrame {
 
         MonedaCambiada.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Peso (Mexicano)", "Euro", "Dolar" }));
 
+        txtMoneda.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
         txtMonedaCambiada.setEditable(false);
         txtMonedaCambiada.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txtMonedaCambiada.setForeground(new java.awt.Color(0, 0, 0));
+        txtMonedaCambiada.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtMonedaCambiada.setEnabled(false);
 
         btn_agregar_inv.setBackground(new java.awt.Color(183, 112, 255));
@@ -109,7 +114,11 @@ public class Conversor extends javax.swing.JInternalFrame {
         
         double cantidadConvertida = convertirMoneda(cantidadOriginal, monedaOrigen, monedaCambiada);
         
-        txtMonedaCambiada.setText(String.valueOf(cantidadConvertida));
+        
+        DecimalFormat df = new DecimalFormat("#.##");
+        String resultadoFormateado = df.format(cantidadConvertida);
+        
+        txtMonedaCambiada.setText(resultadoFormateado);
     }//GEN-LAST:event_btn_agregar_invActionPerformed
 
     private double convertirMoneda(double cantidadOriginal, String MonedaOrigen, String MonedaCambiada){

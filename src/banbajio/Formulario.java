@@ -56,8 +56,18 @@ public class Formulario extends javax.swing.JFrame {
         });
 
         txt_fecha_Off.setText("Fecha de expiracion");
+        txt_fecha_Off.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_fecha_OffFocusGained(evt);
+            }
+        });
 
         txt_security_Code.setText("Codigo de seguridad");
+        txt_security_Code.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_security_CodeFocusGained(evt);
+            }
+        });
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/tarjeta.png"))); // NOI18N
         jLabel3.setToolTipText("");
@@ -67,10 +77,20 @@ public class Formulario extends javax.swing.JFrame {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/lock.png"))); // NOI18N
 
         txt_Telefono.setText("Telefono");
+        txt_Telefono.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_TelefonoFocusGained(evt);
+            }
+        });
+        txt_Telefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_TelefonoActionPerformed(evt);
+            }
+        });
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/phone.png"))); // NOI18N
 
-        cb_tipo_Tarjeta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TARJETA DE DEBITO", "TARJETA DE CREDITO" }));
+        cb_tipo_Tarjeta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DEBITO", "CREDITO" }));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/tarjeta.png"))); // NOI18N
         jLabel7.setToolTipText("");
@@ -189,9 +209,24 @@ public class Formulario extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void txt_numero_TarjetaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_numero_TarjetaFocusGained
-        txt_numero_Tarjeta.setText("");
-        //txt_numero_Tarjeta.setForeground(Color.black);
+        txt_numero_Tarjeta.setText("");    
     }//GEN-LAST:event_txt_numero_TarjetaFocusGained
+
+    private void txt_fecha_OffFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_fecha_OffFocusGained
+        txt_fecha_Off.setText("");
+    }//GEN-LAST:event_txt_fecha_OffFocusGained
+
+    private void txt_security_CodeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_security_CodeFocusGained
+        txt_security_Code.setText("");
+    }//GEN-LAST:event_txt_security_CodeFocusGained
+
+    private void txt_TelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_TelefonoActionPerformed
+        //SORRY
+    }//GEN-LAST:event_txt_TelefonoActionPerformed
+
+    private void txt_TelefonoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_TelefonoFocusGained
+        txt_Telefono.setText("");
+    }//GEN-LAST:event_txt_TelefonoFocusGained
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
