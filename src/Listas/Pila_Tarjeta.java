@@ -62,6 +62,7 @@ public class Pila_Tarjeta {
                
                 find = true;
            }
+           walker = walker.getSiguiente();
        }
        
        return datos;
