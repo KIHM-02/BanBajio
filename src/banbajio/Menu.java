@@ -82,12 +82,13 @@ public class Menu extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         combox_tipo_tarjeta = new javax.swing.JComboBox<>();
-        txt_num_tarjeta = new javax.swing.JLabel();
-        txt_ccv = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
+        lbl_num_tarjeta = new javax.swing.JLabel();
+        lbl_ccv = new javax.swing.JLabel();
+        lblFechaExpiracion = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
+        btnBuscarTarjeta = new javax.swing.JButton();
         panel_usuario = new javax.swing.JPanel();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jLabel6 = new javax.swing.JLabel();
@@ -299,16 +300,16 @@ public class Menu extends javax.swing.JFrame {
         jLabel15.setText("Fecha de expiración");
 
         combox_tipo_tarjeta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        combox_tipo_tarjeta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Débito", "Crédito" }));
+        combox_tipo_tarjeta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DEBITO", "CREDITO" }));
 
-        txt_num_tarjeta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txt_num_tarjeta.setText("número predeterminado");
+        lbl_num_tarjeta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbl_num_tarjeta.setText("número predeterminado");
 
-        txt_ccv.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txt_ccv.setText("código predeterminado");
+        lbl_ccv.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbl_ccv.setText("código predeterminado");
 
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel16.setText("fecha predeterminada");
+        lblFechaExpiracion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblFechaExpiracion.setText("fecha predeterminada");
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/tarjeta.png"))); // NOI18N
 
@@ -316,32 +317,42 @@ public class Menu extends javax.swing.JFrame {
 
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/lock.png"))); // NOI18N
 
+        btnBuscarTarjeta.setText("BUSCAR");
+        btnBuscarTarjeta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarTarjetaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel_c_bancoLayout = new javax.swing.GroupLayout(panel_c_banco);
         panel_c_banco.setLayout(panel_c_bancoLayout);
         panel_c_bancoLayout.setHorizontalGroup(
             panel_c_bancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_c_bancoLayout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addGroup(panel_c_bancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel17)
-                    .addComponent(jLabel18)
-                    .addComponent(jLabel19))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panel_c_bancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_c_bancoLayout.createSequentialGroup()
-                        .addComponent(jLabel12)
-                        .addGap(18, 18, 18)
-                        .addComponent(combox_tipo_tarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panel_c_bancoLayout.createSequentialGroup()
+                        .addGroup(panel_c_bancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel18)
+                            .addComponent(jLabel19))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panel_c_bancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel15)
-                            .addComponent(jLabel13))
-                        .addGap(18, 18, 18)
-                        .addGroup(panel_c_bancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_num_tarjeta)
-                            .addComponent(jLabel16)
-                            .addComponent(txt_ccv))))
+                            .addGroup(panel_c_bancoLayout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addGap(18, 18, 18)
+                                .addComponent(combox_tipo_tarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panel_c_bancoLayout.createSequentialGroup()
+                                .addGroup(panel_c_bancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel14)
+                                    .addComponent(jLabel15)
+                                    .addComponent(jLabel13))
+                                .addGap(18, 18, 18)
+                                .addGroup(panel_c_bancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbl_num_tarjeta)
+                                    .addComponent(lblFechaExpiracion)
+                                    .addComponent(lbl_ccv)))))
+                    .addComponent(btnBuscarTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(77, Short.MAX_VALUE))
         );
         panel_c_bancoLayout.setVerticalGroup(
@@ -357,19 +368,21 @@ public class Menu extends javax.swing.JFrame {
                 .addGroup(panel_c_bancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_c_bancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel13)
-                        .addComponent(txt_num_tarjeta))
+                        .addComponent(lbl_num_tarjeta))
                     .addComponent(jLabel18))
                 .addGap(18, 18, 18)
                 .addGroup(panel_c_bancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_c_bancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel14)
-                        .addComponent(txt_ccv))
+                        .addComponent(lbl_ccv))
                     .addComponent(jLabel19))
                 .addGap(18, 18, 18)
                 .addGroup(panel_c_bancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
-                    .addComponent(jLabel16))
-                .addContainerGap(269, Short.MAX_VALUE))
+                    .addComponent(lblFechaExpiracion))
+                .addGap(18, 18, 18)
+                .addComponent(btnBuscarTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(214, Short.MAX_VALUE))
         );
 
         getContentPane().add(panel_c_banco, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 105, -1, -1));
@@ -658,7 +671,7 @@ public class Menu extends javax.swing.JFrame {
         panel_saldoLayout.setHorizontalGroup(
             panel_saldoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_saldoLayout.createSequentialGroup()
-                .addContainerGap(194, Short.MAX_VALUE)
+                .addContainerGap(191, Short.MAX_VALUE)
                 .addGroup(panel_saldoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_saldoLayout.createSequentialGroup()
                         .addComponent(jLabel2)
@@ -762,7 +775,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_inversionesActionPerformed
 
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
-        // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_btnCloseActionPerformed
 
     private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
@@ -798,8 +811,26 @@ public class Menu extends javax.swing.JFrame {
         formulario.setVisible(true);
     }//GEN-LAST:event_btn_FormularioActionPerformed
 
+    private void btnBuscarTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarTarjetaActionPerformed
+        String tipoTarjeta = (String) combox_tipo_tarjeta.getSelectedItem();
+        
+        String[] datos = pila.displayCardInformation(id, tipoTarjeta);
+        
+        if(datos != null)
+        {
+            lbl_num_tarjeta.setText(datos[1]);
+            lblFechaExpiracion.setText(datos[2]);
+            lbl_ccv.setText(datos[3]);
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Hubo un error al mostrar los datos", "Avisos", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_btnBuscarTarjetaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscarTarjeta;
     private javax.swing.JMenuItem btnCerrarSesion;
     private javax.swing.JMenuItem btnClose;
     private javax.swing.JMenu btnDevInfo;
@@ -832,7 +863,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -852,7 +882,10 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lblFechaExpiracion;
     private javax.swing.JLabel lblRendimiento;
+    private javax.swing.JLabel lbl_ccv;
+    private javax.swing.JLabel lbl_num_tarjeta;
     private javax.swing.JPanel panel_c_banco;
     private javax.swing.JPanel panel_inversion;
     private javax.swing.JPanel panel_menulat;
@@ -861,10 +894,8 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel panel_usuario;
     private javax.swing.JTable tabla_mov;
     private javax.swing.JTextArea txtA_inv;
-    private javax.swing.JLabel txt_ccv;
     private javax.swing.JLabel txt_celular;
     private javax.swing.JLabel txt_email;
     private javax.swing.JLabel txt_nombre;
-    private javax.swing.JLabel txt_num_tarjeta;
     // End of variables declaration//GEN-END:variables
 }
