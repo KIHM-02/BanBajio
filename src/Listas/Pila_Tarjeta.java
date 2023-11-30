@@ -46,4 +46,24 @@ public class Pila_Tarjeta {
        
        return find;
    }
+   
+   public String[] displayCardInformation(int id, String tipoTarjeta)
+   {
+       Nodo_Tarjeta walker = inicio;
+       boolean find = false;
+       String datos[] = null;
+       
+       while(walker.getSiguiente() != null && find == false)
+       {
+           if(walker.getId() == id && walker.getTipo_Tarjeta().equals(tipoTarjeta))
+           {
+                datos = new String[] {walker.getNumero_Tarjeta(), walker.getFecha_Off(),
+                   String.valueOf(walker.getSecurity_Code())};
+               
+                find = true;
+           }
+       }
+       
+       return datos;
+   }
 }
