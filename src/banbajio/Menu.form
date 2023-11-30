@@ -896,7 +896,7 @@
               <Component id="btn_inversiones" alignment="0" max="32767" attributes="0"/>
               <Component id="btn_prestamos" alignment="0" max="32767" attributes="0"/>
               <Component id="btn_conversion" alignment="0" max="32767" attributes="0"/>
-              <Component id="btn_conversion1" alignment="0" max="32767" attributes="0"/>
+              <Component id="btn_Formulario" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -917,7 +917,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btn_conversion" min="-2" pref="35" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btn_conversion1" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="btn_Formulario" min="-2" pref="35" max="-2" attributes="0"/>
                   <EmptySpace pref="236" max="32767" attributes="0"/>
                   <Component id="btn_app" min="-2" pref="35" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
@@ -1085,7 +1085,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_conversionActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btn_conversion1">
+        <Component class="javax.swing.JButton" name="btn_Formulario">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="33" red="ff" type="rgb"/>
@@ -1104,7 +1104,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_conversion1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_FormularioActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

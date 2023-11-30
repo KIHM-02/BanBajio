@@ -26,6 +26,7 @@ public class Herramientas extends javax.swing.JFrame {
         btnCerrarConversor = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         lblImagenLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/logotipo.png"))); // NOI18N
 
