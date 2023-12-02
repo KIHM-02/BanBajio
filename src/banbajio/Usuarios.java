@@ -636,7 +636,7 @@ public class Usuarios extends javax.swing.JFrame
                 
                 id = lista.getUserId(enteredEmail);
                 
-                Menu menu = new Menu(this, pila, id);
+                Menu menu = new Menu(this, lista, pila, id);
                 menu.setVisible(true);
                 //this.dispose();     
                 this.setVisible(false);
