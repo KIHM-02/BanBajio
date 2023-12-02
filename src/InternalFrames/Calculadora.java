@@ -1,4 +1,4 @@
-package banbajio;
+package InternalFrames;
 
 import javax.swing.JOptionPane;
 

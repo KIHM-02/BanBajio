@@ -1,5 +1,8 @@
 package banbajio;
 
+import InternalFrames.Conversor;
+import InternalFrames.Calculadora;
+
 public class Herramientas extends javax.swing.JFrame {
 
     private Menu menu;

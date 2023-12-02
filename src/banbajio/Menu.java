@@ -1,6 +1,5 @@
 package banbajio;
 
-import InternalFrames.Formulario;
 import InternalFrames.Modificar_Usuario;
 import Listas.Lista_User;
 import Listas.Pila_Tarjeta;

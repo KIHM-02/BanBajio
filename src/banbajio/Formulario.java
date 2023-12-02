@@ -1,5 +1,5 @@
 
-package InternalFrames;
+package banbajio;
 
 import Listas.Pila_Tarjeta;
 import banbajio.Menu;
