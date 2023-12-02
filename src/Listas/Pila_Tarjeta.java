@@ -33,20 +33,46 @@ public class Pila_Tarjeta
        }
    }
    
+   public void contarDatos()
+   {
+       int iterador = 0;
+       
+       if(isEmpty())
+       {
+           System.out.println("No hay datos registrados");
+       }
+       else
+       {
+           Nodo_Tarjeta walker = inicio;
+           
+           while(walker != null)
+           {
+               iterador++;
+               walker = walker.getSiguiente();
+           }
+           
+           System.out.println("Hay "+iterador+" datos");
+       }
+   }
+   
    public boolean buscartarjeta(int id){
        boolean find = false;
        
-       if(!isEmpty()){
+       if(isEmpty()){
+          JOptionPane.showMessageDialog(null, "No hay tarjetas registradas para el usuario "+id);
+       }
+       else
+       {
           Nodo_Tarjeta walker = inicio;
           
-          while(walker.getSiguiente() != null && find == false)
+          while(walker != null && find == false)
           {
             if(walker.getId() == id)
             {
                 find = true;
             }
             walker = walker.getSiguiente();
-          }   
+          }
        }
        
        return find;

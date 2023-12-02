@@ -10,7 +10,7 @@ public class Menu extends javax.swing.JFrame {
      * Creates new form menu
      */
     private Usuarios usuarios; 
-    protected Pila_Tarjeta pila;
+    private Pila_Tarjeta pila;
     private int id;
     
     public Menu(Usuarios usuarios, Pila_Tarjeta pila, int id) {
@@ -29,10 +29,6 @@ public class Menu extends javax.swing.JFrame {
         verifyCards(false);
     }
 
-    Menu() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
     public void verifyCards(boolean state)
     {
         if(!pila.buscartarjeta(id))
