@@ -13,38 +13,16 @@ public class Main
         
         lista.addData("user", "user@correo.com", "1234");
         lista.addData("user2", "user@correo.com", "1234");
-       // lista.addData("user3", "user@correo.com", "1234");
         
         Usuarios login = new Usuarios(lista, pila);
         login.setVisible(true);
         
-//        int id = lista.getLastUser();
-//        boolean datos;
-//        boolean datos2;
+//        System.out.println("La ultima ID es: "+lista.getLastUser());
 //        
-//        pila.push(id, "DEBITO", "123456789", "12/12", 554);
-//        pila.push(id, "CREDITO", "1234567891245", "15/12", 554);
-//        
-//        datos = pila.buscartarjeta(1);
-//        datos2 = pila.buscartarjeta(2);
-//        
-//        if(datos)
-//        {
-//            System.out.println("Si hay datos en la pila 1");
-//        }
-//        if(datos2)
-//        {
-//            System.out.println("Si hay datos en la pila 2");
-//        }
-//        
-//        if(!datos)
-//        {
-//            System.out.println("No hay datos en la pila 1");
-//        }
-//        if(!datos2)
-//        {
-//            System.out.println("No hay datos en la pila 2");
-//        }
+//        System.out.println("Agregando primera tarjeta.....");
+//        pila.push(1, "DEBITO", "12345678910", "12/12", 123);
+//        //pila.contarDatos();
+//        pila.buscartarjeta(1);
         
     }
     

@@ -1,5 +1,4 @@
 package Listas;
-
 import java.util.LinkedList;
 
 public class Nodo_Tarjeta {
@@ -66,8 +65,4 @@ public class Nodo_Tarjeta {
     public void setSiguiente(Nodo_Tarjeta siguiente) {
         this.siguiente = siguiente;
     }
-    
-    
-    
-    
 }
