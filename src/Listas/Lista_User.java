@@ -87,4 +87,19 @@ public class Lista_User
         }
         return null;
     }
+    
+    public String[] getUserInformation(int id){
+        String [] datos = null;
+        Nodo_User temp = inicio;
+        boolean find = false;
+        
+        while(temp != null && find == false){
+            if(temp.getId()==id){
+                datos = new String[]{temp.getUser(), temp.getEmail(), temp.getPassword()};
+                find = true;
+            }
+            
+        }
+        return datos;
+    }
 }

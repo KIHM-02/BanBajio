@@ -1,6 +1,9 @@
 package banbajio;
 
+import Listas.Lista_User;
 import Listas.Pila_Tarjeta;
+import java.util.HashSet;
+import java.util.Set;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -12,8 +15,9 @@ public class Menu extends javax.swing.JFrame {
     private Usuarios usuarios; 
     private Pila_Tarjeta pila;
     private int id;
+    private Lista_User lista;
     
-    public Menu(Usuarios usuarios, Pila_Tarjeta pila, int id) {
+    public Menu(Usuarios usuarios,Lista_User lista, Pila_Tarjeta pila, int id) {
         initComponents();
         this.setLocationRelativeTo(null);
         
@@ -23,6 +27,7 @@ public class Menu extends javax.swing.JFrame {
         hidePanel(panel_inversion, false);
         
         this.usuarios = usuarios;
+        this.lista = lista;
         this.pila = pila;
         this.id = id;
         
@@ -101,19 +106,16 @@ public class Menu extends javax.swing.JFrame {
         panel_usuario = new javax.swing.JPanel();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jLabel6 = new javax.swing.JLabel();
-        txt_nombre = new javax.swing.JLabel();
+        lblnombre = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txt_email = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        txt_celular = new javax.swing.JLabel();
+        lblemail = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        lblcontraseña = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        btn_agregar_inv1 = new javax.swing.JButton();
+        btnModificarUsuario = new javax.swing.JButton();
         chbMostrarPassword = new javax.swing.JCheckBox();
-        jLabel21 = new javax.swing.JLabel();
         panel_menulat = new javax.swing.JPanel();
         btn_app = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -401,26 +403,20 @@ public class Menu extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel6.setText("Nombre de usuario");
 
-        txt_nombre.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
-        txt_nombre.setText("nombre predeterminado");
+        lblnombre.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        lblnombre.setText("nombre predeterminado");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel5.setText("Correo electrónico");
 
-        txt_email.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
-        txt_email.setText("correo predeterminado");
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel7.setText("Número de teléfono");
-
-        txt_celular.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
-        txt_celular.setText("número predeterminado");
+        lblemail.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        lblemail.setText("correo predeterminado");
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel8.setText("Contraseña");
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
-        jLabel9.setText("contraseña predeterminada");
+        lblcontraseña.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        lblcontraseña.setText("contraseña predeterminada");
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/usuario.png"))); // NOI18N
 
@@ -428,99 +424,93 @@ public class Menu extends javax.swing.JFrame {
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/lock.png"))); // NOI18N
 
-        btn_agregar_inv1.setBackground(new java.awt.Color(183, 112, 255));
-        btn_agregar_inv1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btn_agregar_inv1.setText("MODIFICAR DATOS");
-        btn_agregar_inv1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnModificarUsuario.setBackground(new java.awt.Color(183, 112, 255));
+        btnModificarUsuario.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnModificarUsuario.setText("MODIFICAR DATOS");
+        btnModificarUsuario.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnModificarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarUsuarioActionPerformed(evt);
+            }
+        });
 
         chbMostrarPassword.setText("Mostrar");
-
-        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/phone.png"))); // NOI18N
+        chbMostrarPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chbMostrarPasswordActionPerformed(evt);
+            }
+        });
 
         jDesktopPane1.setLayer(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(txt_nombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(lblnombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(txt_email, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(txt_celular, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(lblemail, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel8, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jLabel9, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(lblcontraseña, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel10, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel11, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(btn_agregar_inv1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(btnModificarUsuario, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(chbMostrarPassword, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jLabel21, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addContainerGap(52, Short.MAX_VALUE)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_agregar_inv1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel4)
                             .addComponent(jLabel10)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel21))
+                            .addComponent(jLabel11))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jDesktopPane1Layout.createSequentialGroup()
-                                    .addComponent(jLabel7)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(txt_celular, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                    .addComponent(jLabel8)
-                                    .addGap(88, 88, 88)
-                                    .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(chbMostrarPassword)
-                                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel6)
                                     .addComponent(jLabel5))
                                 .addGap(18, 18, 18)
                                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txt_email, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addGap(41, 41, 41))
+                                    .addComponent(lblemail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addGap(54, 54, 54)
+                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(chbMostrarPassword)
+                                    .addComponent(lblcontraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addComponent(btnModificarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(45, 45, 45))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addGap(134, 134, 134)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel6)
+                                .addComponent(lblnombre))
+                            .addComponent(jLabel4))
+                        .addGap(18, 18, 18)
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel5)
+                                .addComponent(lblemail))
+                            .addComponent(jLabel10))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel11))
                     .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel6)
-                        .addComponent(txt_nombre))
-                    .addComponent(jLabel4))
-                .addGap(18, 18, 18)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel5)
-                        .addComponent(txt_email))
-                    .addComponent(jLabel10))
-                .addGap(18, 18, 18)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel7)
-                        .addComponent(txt_celular))
-                    .addComponent(jLabel21))
-                .addGap(18, 18, 18)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel8)
-                        .addComponent(jLabel9))
-                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addComponent(lblcontraseña)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(chbMostrarPassword)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_agregar_inv1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(206, Short.MAX_VALUE))
+                .addGap(39, 39, 39)
+                .addComponent(btnModificarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(229, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panel_usuarioLayout = new javax.swing.GroupLayout(panel_usuario);
@@ -837,6 +827,19 @@ public class Menu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnBuscarTarjetaActionPerformed
 
+    private void chbMostrarPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbMostrarPasswordActionPerformed
+      //Sorry
+    }//GEN-LAST:event_chbMostrarPasswordActionPerformed
+
+    private void btnModificarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarUsuarioActionPerformed
+       String[] datos = lista.getUserInformation(id);
+       
+       lblnombre.setText(datos[0]);
+       lblcontraseña.setText(datos[2]);
+       lblemail.setText(datos[1]);
+        
+    }//GEN-LAST:event_btnModificarUsuarioActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarTarjeta;
@@ -844,12 +847,12 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnClose;
     private javax.swing.JMenu btnDevInfo;
     private javax.swing.JMenuItem btnInformacion;
+    private javax.swing.JButton btnModificarUsuario;
     private javax.swing.JMenu btnRecordatorios;
     private javax.swing.JMenu btnSalir;
     private javax.swing.JButton btn_Formulario;
     private javax.swing.JButton btn_agregar;
     private javax.swing.JButton btn_agregar_inv;
-    private javax.swing.JButton btn_agregar_inv1;
     private javax.swing.JButton btn_app;
     private javax.swing.JButton btn_conversion;
     private javax.swing.JButton btn_cuentabanco;
@@ -877,14 +880,11 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuBar jMenu;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -895,6 +895,9 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel lblRendimiento;
     private javax.swing.JLabel lbl_ccv;
     private javax.swing.JLabel lbl_num_tarjeta;
+    private javax.swing.JLabel lblcontraseña;
+    private javax.swing.JLabel lblemail;
+    private javax.swing.JLabel lblnombre;
     private javax.swing.JPanel panel_c_banco;
     private javax.swing.JPanel panel_inversion;
     private javax.swing.JPanel panel_menulat;
@@ -903,8 +906,5 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel panel_usuario;
     private javax.swing.JTable tabla_mov;
     private javax.swing.JTextArea txtA_inv;
-    private javax.swing.JLabel txt_celular;
-    private javax.swing.JLabel txt_email;
-    private javax.swing.JLabel txt_nombre;
     // End of variables declaration//GEN-END:variables
 }
