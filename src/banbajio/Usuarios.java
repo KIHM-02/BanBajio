@@ -3,6 +3,8 @@ package banbajio;
 import Listas.Lista_User;
 import Listas.Pila_Tarjeta;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -15,6 +17,15 @@ public class Usuarios extends javax.swing.JFrame
     public Usuarios(Lista_User lista, Pila_Tarjeta pila) 
     {
         initComponents();
+        getRootPane().setDefaultButton(btnLogin);
+        
+        txtPassLogin.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                btnLoginActionPerformed(e);
+            }
+        });
+                
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         btnLogin.requestFocus();
@@ -622,7 +633,7 @@ public class Usuarios extends javax.swing.JFrame
             String storedPassword = lista.getPasswordForUser(enteredUser);
             
             if(storedPassword.equals(enteredPassword)){
-                JOptionPane.showMessageDialog(this, "Inicio de sesion exitoso","Acceso Permitido",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Inicio de sesion exitoso","Acceso Permitido",JOptionPane.PLAIN_MESSAGE);
                 
                 Menu menu = new Menu(this, pila, id);
                 menu.setVisible(true);
@@ -631,6 +642,9 @@ public class Usuarios extends javax.swing.JFrame
             }else{
                 JOptionPane.showMessageDialog(this, "Los datos ingresados son incorrectos, verifica por favor", "Acceso Denegado", JOptionPane.WARNING_MESSAGE);
             }
+        }else{
+            JOptionPane.showMessageDialog(this, "Los datos ingresados son incorrectos, verifica por favor", "Acceso Denegado", JOptionPane.WARNING_MESSAGE);
+            
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 
