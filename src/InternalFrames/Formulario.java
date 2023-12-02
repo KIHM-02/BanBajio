@@ -1,7 +1,8 @@
 
-package banbajio;
+package InternalFrames;
 
 import Listas.Pila_Tarjeta;
+import banbajio.Menu;
 
 public class Formulario extends javax.swing.JFrame {
     
@@ -200,7 +201,7 @@ public class Formulario extends javax.swing.JFrame {
         
         pila.push(id, tipoTarjeta, numeroTarjeta, fecha_Off, security_Code);
         
-        menu.verifyCards(true);
+        menu.verifyCards();
         dispose();
     }//GEN-LAST:event_btn_GuardarActionPerformed
 

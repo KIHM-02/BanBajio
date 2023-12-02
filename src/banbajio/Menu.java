@@ -1,9 +1,9 @@
 package banbajio;
 
+import InternalFrames.Formulario;
+import InternalFrames.Modificar_Usuario;
 import Listas.Lista_User;
 import Listas.Pila_Tarjeta;
-import java.util.HashSet;
-import java.util.Set;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -31,37 +31,33 @@ public class Menu extends javax.swing.JFrame {
         this.pila = pila;
         this.id = id;
         
-        verifyCards(false);
+        verifyCards();
     }
 
-    public void verifyCards(boolean state)
+    public void verifyCards()
     {
         if(pila.buscartarjeta(id) == false)
         {
-            btn_usuario.setEnabled(state);
-            btn_inversiones.setEnabled(state);
-            btn_cuentabanco.setEnabled(state);
-            btn_menu.setEnabled(state);
-            btn_prestamos.setEnabled(state);
-            
-            hidePanel(panel_mov, state);
-            hidePanel(panel_usuario, false);
-            hidePanel(panel_c_banco, false);
-            hidePanel(panel_inversion, false);
+            enableButtons(false);
         }
         else
         {
-            btn_usuario.setEnabled(state);
-            btn_inversiones.setEnabled(state);
-            btn_cuentabanco.setEnabled(state);
-            btn_menu.setEnabled(state);
-            btn_prestamos.setEnabled(state);
-            
-            hidePanel(panel_mov, state);
-            hidePanel(panel_usuario, false);
-            hidePanel(panel_c_banco, false);
-            hidePanel(panel_inversion, false);
+            enableButtons(true);
         }
+    }
+    
+    public void enableButtons(boolean state)
+    {
+        btn_usuario.setEnabled(state);
+        btn_inversiones.setEnabled(state);
+        btn_cuentabanco.setEnabled(state);
+        btn_menu.setEnabled(state);
+        btn_prestamos.setEnabled(state);
+          
+        hidePanel(panel_mov, state);
+        hidePanel(panel_usuario, false);
+        hidePanel(panel_c_banco, false);
+        hidePanel(panel_inversion, false);
     }
     
     public void hidePanel(JPanel panel, boolean state)
@@ -69,6 +65,14 @@ public class Menu extends javax.swing.JFrame {
         panel.setVisible(state);
     }
 
+    public void displayUserInformation()
+    {
+        String[] datos = lista.getUserInformation(id);
+       
+        lblnombre.setText(datos[0]);
+        lblcontraseña.setText(datos[2]);
+        lblemail.setText(datos[1]);
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -103,14 +107,15 @@ public class Menu extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         btnBuscarTarjeta = new javax.swing.JButton();
+        jLabel21 = new javax.swing.JLabel();
         panel_usuario = new javax.swing.JPanel();
-        jDesktopPane1 = new javax.swing.JDesktopPane();
-        jLabel6 = new javax.swing.JLabel();
+        dPaneModifyUserData = new javax.swing.JDesktopPane();
         lblnombre = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         lblemail = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         lblcontraseña = new javax.swing.JLabel();
+        lblUser = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -335,6 +340,8 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/fecha.png"))); // NOI18N
+
         javax.swing.GroupLayout panel_c_bancoLayout = new javax.swing.GroupLayout(panel_c_banco);
         panel_c_banco.setLayout(panel_c_bancoLayout);
         panel_c_bancoLayout.setHorizontalGroup(
@@ -342,6 +349,11 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(panel_c_bancoLayout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(panel_c_bancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_c_bancoLayout.createSequentialGroup()
+                        .addComponent(jLabel21)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel15))
+                    .addComponent(btnBuscarTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panel_c_bancoLayout.createSequentialGroup()
                         .addGroup(panel_c_bancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel17)
@@ -356,26 +368,24 @@ public class Menu extends javax.swing.JFrame {
                             .addGroup(panel_c_bancoLayout.createSequentialGroup()
                                 .addGroup(panel_c_bancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel14)
-                                    .addComponent(jLabel15)
                                     .addComponent(jLabel13))
                                 .addGap(18, 18, 18)
                                 .addGroup(panel_c_bancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lbl_num_tarjeta)
-                                    .addComponent(lblFechaExpiracion)
-                                    .addComponent(lbl_ccv)))))
-                    .addComponent(btnBuscarTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lbl_ccv)
+                                    .addComponent(lblFechaExpiracion))))))
                 .addContainerGap(77, Short.MAX_VALUE))
         );
         panel_c_bancoLayout.setVerticalGroup(
             panel_c_bancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_c_bancoLayout.createSequentialGroup()
-                .addGap(112, 112, 112)
+                .addGap(151, 151, 151)
                 .addGroup(panel_c_bancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel17)
                     .addGroup(panel_c_bancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel12)
                         .addComponent(combox_tipo_tarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(57, 57, 57)
+                .addGap(18, 18, 18)
                 .addGroup(panel_c_bancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_c_bancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel13)
@@ -388,35 +398,37 @@ public class Menu extends javax.swing.JFrame {
                         .addComponent(lbl_ccv))
                     .addComponent(jLabel19))
                 .addGap(18, 18, 18)
-                .addGroup(panel_c_bancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
-                    .addComponent(lblFechaExpiracion))
+                .addGroup(panel_c_bancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panel_c_bancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel15)
+                        .addComponent(lblFechaExpiracion))
+                    .addComponent(jLabel21))
                 .addGap(18, 18, 18)
                 .addComponent(btnBuscarTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(214, Short.MAX_VALUE))
+                .addContainerGap(207, Short.MAX_VALUE))
         );
 
         getContentPane().add(panel_c_banco, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 105, -1, -1));
 
         panel_usuario.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel6.setText("Nombre de usuario");
-
         lblnombre.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
         lblnombre.setText("nombre predeterminado");
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel5.setText("Correo electrónico");
 
         lblemail.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
         lblemail.setText("correo predeterminado");
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel8.setText("Contraseña");
-
         lblcontraseña.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
         lblcontraseña.setText("contraseña predeterminada");
+
+        lblUser.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblUser.setText("Nombre de usuario");
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel5.setText("Correo electrónico");
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel8.setText("Contraseña");
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/usuario.png"))); // NOI18N
 
@@ -441,71 +453,70 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        jDesktopPane1.setLayer(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(lblnombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(lblemail, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jLabel8, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(lblcontraseña, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jLabel10, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jLabel11, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(btnModificarUsuario, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(chbMostrarPassword, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dPaneModifyUserData.setLayer(lblnombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dPaneModifyUserData.setLayer(lblemail, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dPaneModifyUserData.setLayer(lblcontraseña, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dPaneModifyUserData.setLayer(lblUser, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dPaneModifyUserData.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dPaneModifyUserData.setLayer(jLabel8, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dPaneModifyUserData.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dPaneModifyUserData.setLayer(jLabel10, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dPaneModifyUserData.setLayer(jLabel11, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dPaneModifyUserData.setLayer(btnModificarUsuario, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dPaneModifyUserData.setLayer(chbMostrarPassword, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+        javax.swing.GroupLayout dPaneModifyUserDataLayout = new javax.swing.GroupLayout(dPaneModifyUserData);
+        dPaneModifyUserData.setLayout(dPaneModifyUserDataLayout);
+        dPaneModifyUserDataLayout.setHorizontalGroup(
+            dPaneModifyUserDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dPaneModifyUserDataLayout.createSequentialGroup()
+                .addContainerGap(54, Short.MAX_VALUE)
+                .addGroup(dPaneModifyUserDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dPaneModifyUserDataLayout.createSequentialGroup()
+                        .addGroup(dPaneModifyUserDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel4)
                             .addComponent(jLabel10)
                             .addComponent(jLabel11))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
+                        .addGroup(dPaneModifyUserDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(dPaneModifyUserDataLayout.createSequentialGroup()
+                                .addGroup(dPaneModifyUserDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblUser)
                                     .addComponent(jLabel5))
                                 .addGap(18, 18, 18)
-                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(dPaneModifyUserDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(lblemail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(lblnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                            .addGroup(dPaneModifyUserDataLayout.createSequentialGroup()
                                 .addComponent(jLabel8)
-                                .addGap(54, 54, 54)
-                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGap(85, 85, 85)
+                                .addGroup(dPaneModifyUserDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(chbMostrarPassword)
                                     .addComponent(lblcontraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addComponent(btnModificarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45))
+                .addGap(42, 42, 42))
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+        dPaneModifyUserDataLayout.setVerticalGroup(
+            dPaneModifyUserDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dPaneModifyUserDataLayout.createSequentialGroup()
                 .addGap(134, 134, 134)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel6)
+                .addGroup(dPaneModifyUserDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(dPaneModifyUserDataLayout.createSequentialGroup()
+                        .addGroup(dPaneModifyUserDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(dPaneModifyUserDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lblUser)
                                 .addComponent(lblnombre))
                             .addComponent(jLabel4))
                         .addGap(18, 18, 18)
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel5)
-                                .addComponent(lblemail))
-                            .addComponent(jLabel10))
+                        .addGroup(dPaneModifyUserDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblemail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel11))
-                    .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel8)
-                        .addComponent(lblcontraseña)))
+                        .addGroup(dPaneModifyUserDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11)
+                            .addComponent(lblcontraseña)))
+                    .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(chbMostrarPassword)
                 .addGap(39, 39, 39)
@@ -517,11 +528,11 @@ public class Menu extends javax.swing.JFrame {
         panel_usuario.setLayout(panel_usuarioLayout);
         panel_usuarioLayout.setHorizontalGroup(
             panel_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addComponent(dPaneModifyUserData)
         );
         panel_usuarioLayout.setVerticalGroup(
             panel_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addComponent(dPaneModifyUserData)
         );
 
         getContentPane().add(panel_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 105, 600, 595));
@@ -757,6 +768,8 @@ public class Menu extends javax.swing.JFrame {
         hidePanel(panel_usuario, true);
         hidePanel(panel_c_banco, false);
         hidePanel(panel_inversion, false);
+        
+        displayUserInformation();
     }//GEN-LAST:event_btn_usuarioActionPerformed
 
     private void btn_cuentabancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cuentabancoActionPerformed
@@ -832,12 +845,9 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_chbMostrarPasswordActionPerformed
 
     private void btnModificarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarUsuarioActionPerformed
-       String[] datos = lista.getUserInformation(id);
-       
-       lblnombre.setText(datos[0]);
-       lblcontraseña.setText(datos[2]);
-       lblemail.setText(datos[1]);
-        
+        Modificar_Usuario modificarUsr = new Modificar_Usuario(this, lista, id);
+        dPaneModifyUserData.add(modificarUsr);
+        modificarUsr.show();
     }//GEN-LAST:event_btnModificarUsuarioActionPerformed
 
 
@@ -867,7 +877,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JCheckBox chbMostrarPassword;
     private javax.swing.JComboBox<String> combox_proyeccion;
     private javax.swing.JComboBox<String> combox_tipo_tarjeta;
-    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JDesktopPane dPaneModifyUserData;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -880,10 +890,10 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JMenuBar jMenu;
     private javax.swing.JMenuItem jMenuItem1;
@@ -893,6 +903,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblFechaExpiracion;
     private javax.swing.JLabel lblRendimiento;
+    private javax.swing.JLabel lblUser;
     private javax.swing.JLabel lbl_ccv;
     private javax.swing.JLabel lbl_num_tarjeta;
     private javax.swing.JLabel lblcontraseña;

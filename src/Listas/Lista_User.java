@@ -102,4 +102,31 @@ public class Lista_User
         }
         return datos;
     }
+    
+    public void modifyUserInformation(String operacion, int id, String dato)
+    {
+        Nodo_User temp = inicio;
+        boolean find = false;
+        
+        while(temp != null && find == false)
+        {
+            if(temp.getId() == id)
+            {
+                find = true;
+                switch(operacion)
+                {
+                    case "nombre": 
+                        temp.setUser(dato);
+                        break;
+                    case "correo":
+                        temp.setEmail(dato);
+                        break;
+                    case "contraseña":
+                        temp.setPassword(dato);
+                        break;
+                }
+            }
+            temp = temp.getSiguiente();
+        }
+    }
 }

@@ -11,7 +11,7 @@ public class Main
         Pila_Tarjeta pila = new Pila_Tarjeta();
         
         
-        lista.addData("user", "user", "1234");
+        lista.addData("usuario1", "user", "1234");
         pila.push(1, "DEBITO", "1234567890", "12/12", 240);
 //        lista.addData("user2", "user@correo.com", "1234");
         

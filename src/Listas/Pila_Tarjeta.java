@@ -84,7 +84,7 @@ public class Pila_Tarjeta
        boolean find = false;
        String datos[] = null;
        
-       while(walker.getSiguiente() != null && find == false)
+       while(walker != null && find == false)
        {
            if(walker.getId() == id && walker.getTipo_Tarjeta().equals(tipoTarjeta))
            {
