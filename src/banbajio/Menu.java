@@ -31,7 +31,20 @@ public class Menu extends javax.swing.JFrame {
 
     public void verifyCards(boolean state)
     {
-        if(!pila.buscartarjeta(id))
+        if(pila.buscartarjeta(id) == false)
+        {
+            btn_usuario.setEnabled(state);
+            btn_inversiones.setEnabled(state);
+            btn_cuentabanco.setEnabled(state);
+            btn_menu.setEnabled(state);
+            btn_prestamos.setEnabled(state);
+            
+            hidePanel(panel_mov, state);
+            hidePanel(panel_usuario, false);
+            hidePanel(panel_c_banco, false);
+            hidePanel(panel_inversion, false);
+        }
+        else
         {
             btn_usuario.setEnabled(state);
             btn_inversiones.setEnabled(state);

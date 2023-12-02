@@ -28,7 +28,7 @@ public class Usuarios extends javax.swing.JFrame
                 
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        btnLogin.requestFocus();
+        txtEmailLogin.requestFocus();
         
         this.lista = lista;
         this.pila = pila;
@@ -55,7 +55,7 @@ public class Usuarios extends javax.swing.JFrame
         jLabel4 = new javax.swing.JLabel();
         lblUser1 = new javax.swing.JLabel();
         panelEtiqueta9 = new javax.swing.JPanel();
-        txtUserLogin = new javax.swing.JTextField();
+        txtEmailLogin = new javax.swing.JTextField();
         lblPassword1 = new javax.swing.JLabel();
         panelEtiqueta10 = new javax.swing.JPanel();
         txtPassLogin = new javax.swing.JPasswordField();
@@ -140,16 +140,16 @@ public class Usuarios extends javax.swing.JFrame
         panelEtiqueta9.setBackground(new java.awt.Color(255, 255, 255));
         panelEtiqueta9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        txtUserLogin.setText("Usuario cuenta");
-        txtUserLogin.setBorder(null);
-        txtUserLogin.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtEmailLogin.setText("Usuario cuenta");
+        txtEmailLogin.setBorder(null);
+        txtEmailLogin.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                txtUserLoginFocusGained(evt);
+                txtEmailLoginFocusGained(evt);
             }
         });
-        txtUserLogin.addActionListener(new java.awt.event.ActionListener() {
+        txtEmailLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUserLoginActionPerformed(evt);
+                txtEmailLoginActionPerformed(evt);
             }
         });
 
@@ -159,13 +159,13 @@ public class Usuarios extends javax.swing.JFrame
             panelEtiqueta9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEtiqueta9Layout.createSequentialGroup()
                 .addGap(0, 15, Short.MAX_VALUE)
-                .addComponent(txtUserLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(txtEmailLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panelEtiqueta9Layout.setVerticalGroup(
             panelEtiqueta9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEtiqueta9Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(txtUserLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(txtEmailLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         lblPassword1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/lock.png"))); // NOI18N
@@ -574,17 +574,16 @@ public class Usuarios extends javax.swing.JFrame
         user = txtUserRegister.getText();
         email = txtEmail.getText();
         
-        id = lista.getLastUser();
-        
         if(!verifyPassword())
         {
             JOptionPane.showMessageDialog(this, "Las contraseñas son incorrectas", "Contraseña", JOptionPane.WARNING_MESSAGE);
             return;
         }
         
-        password = String.valueOf(txtPassRegister.getPassword())
-                ;
+        password = String.valueOf(txtPassRegister.getPassword());
         lista.addData(user, email, password);
+        
+        id = lista.getUserId(email);
         
         JOptionPane.showMessageDialog(this, "Se ha agregado el usuario con id "+id, "Registro exitoso", JOptionPane.INFORMATION_MESSAGE);
         clean();
@@ -610,14 +609,14 @@ public class Usuarios extends javax.swing.JFrame
         btnRegistrar.setRequestFocusEnabled(true);
     }//GEN-LAST:event_btnRegistrateActionPerformed
 
-    private void txtUserLoginFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUserLoginFocusGained
-        txtUserLogin.setText("");
-        txtUserLogin.setForeground(Color.black);
-    }//GEN-LAST:event_txtUserLoginFocusGained
+    private void txtEmailLoginFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailLoginFocusGained
+        txtEmailLogin.setText("");
+        txtEmailLogin.setForeground(Color.black);
+    }//GEN-LAST:event_txtEmailLoginFocusGained
 
-    private void txtUserLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserLoginActionPerformed
+    private void txtEmailLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailLoginActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtUserLoginActionPerformed
+    }//GEN-LAST:event_txtEmailLoginActionPerformed
 
     private void txtPassLoginFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPassLoginFocusGained
         txtPassLogin.setText("");
@@ -625,15 +624,17 @@ public class Usuarios extends javax.swing.JFrame
     }//GEN-LAST:event_txtPassLoginFocusGained
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        String enteredUser = txtUserLogin.getText();
+        String enteredEmail = txtEmailLogin.getText();
         String enteredPassword = String.valueOf(txtPassLogin.getPassword());
         
-        boolean userExists = lista.userExists(enteredUser);
+        boolean userExists = lista.userExists(enteredEmail);
         if(userExists){
-            String storedPassword = lista.getPasswordForUser(enteredUser);
+            String storedPassword = lista.getPasswordForUser(enteredEmail);
             
             if(storedPassword.equals(enteredPassword)){
                 JOptionPane.showMessageDialog(this, "Inicio de sesion exitoso","Acceso Permitido",JOptionPane.PLAIN_MESSAGE);
+                
+                id = lista.getUserId(enteredEmail);
                 
                 Menu menu = new Menu(this, pila, id);
                 menu.setVisible(true);
@@ -704,9 +705,9 @@ public class Usuarios extends javax.swing.JFrame
     private javax.swing.JPanel panelEtiqueta9;
     private javax.swing.JPasswordField txtConfirmPass;
     private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtEmailLogin;
     private javax.swing.JPasswordField txtPassLogin;
     private javax.swing.JPasswordField txtPassRegister;
-    private javax.swing.JTextField txtUserLogin;
     private javax.swing.JTextField txtUserRegister;
     // End of variables declaration//GEN-END:variables
 }
