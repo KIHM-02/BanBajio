@@ -1,4 +1,4 @@
-package banbajio;
+package InternalFrames;
 
 import java.text.DecimalFormat;
 
@@ -33,7 +33,6 @@ public class Conversor extends javax.swing.JInternalFrame {
 
         txtMonedaCambiada.setEditable(false);
         txtMonedaCambiada.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        txtMonedaCambiada.setForeground(new java.awt.Color(0, 0, 0));
         txtMonedaCambiada.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtMonedaCambiada.setEnabled(false);
 
