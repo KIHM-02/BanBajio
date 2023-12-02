@@ -37,7 +37,7 @@ public class Formulario extends javax.swing.JFrame {
         btn_Guardar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         btnCerrarFormulario = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        btnBack = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(183, 112, 255));
@@ -176,13 +176,13 @@ public class Formulario extends javax.swing.JFrame {
 
         btnCerrarFormulario.setText("Regresar");
 
-        jMenuItem1.setText("Cerrar");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        btnBack.setText("Cerrar");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
-        btnCerrarFormulario.add(jMenuItem1);
+        btnCerrarFormulario.add(btnBack);
 
         jMenuBar1.add(btnCerrarFormulario);
 
@@ -204,9 +204,9 @@ public class Formulario extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btn_GuardarActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         this.dispose();
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_btnBackActionPerformed
 
     private void txt_numero_TarjetaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_numero_TarjetaFocusGained
         txt_numero_Tarjeta.setText("");    
@@ -230,6 +230,7 @@ public class Formulario extends javax.swing.JFrame {
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem btnBack;
     private javax.swing.JMenu btnCerrarFormulario;
     private javax.swing.JButton btn_Guardar;
     private javax.swing.JComboBox<String> cb_tipo_Tarjeta;
@@ -240,7 +241,6 @@ public class Formulario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txt_Telefono;
     private javax.swing.JTextField txt_fecha_Off;

@@ -1,6 +1,9 @@
 package Listas;
 
-public class Pila_Tarjeta {
+import javax.swing.JOptionPane;
+
+public class Pila_Tarjeta 
+{    
     private  Nodo_Tarjeta inicio;
     
    public Pila_Tarjeta(){
@@ -21,10 +24,12 @@ public class Pila_Tarjeta {
            nuevo = new Nodo_Tarjeta(id, tipo_Tarjeta, numero_Tarjeta, fecha_Off, 
                    security_Code, null);
            inicio = nuevo;
+           JOptionPane.showMessageDialog(null, "Se agrego el primer dato");
        }else{
            nuevo = new Nodo_Tarjeta(id, tipo_Tarjeta, numero_Tarjeta, fecha_Off, 
                    security_Code, inicio);
            inicio = nuevo;
+           JOptionPane.showMessageDialog(null, "Se agregan los otros datos");
        }
    }
    
