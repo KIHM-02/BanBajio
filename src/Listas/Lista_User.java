@@ -19,14 +19,8 @@ public class Lista_User
     public void addData(String user, String email, String pwd) 
     {
         int id;
-        if (isEmpty()) 
-        {
-            id = 1;  // Si la lista está vacía, asigna ID 1
-        }
-        else 
-        {
-            id = getLastUser() + 1;  // Obtiene el último ID y le suma 1
-        }
+        if (isEmpty()) { id = 1; }
+        else { id = getLastUser() + 1; }
 
         Nodo_User nuevo;
         if (isEmpty()) 
@@ -59,11 +53,23 @@ public class Lista_User
         
         return id;
     }
-   
-    public boolean userExists(String username){
+    
+    public int getUserId(String email)                                          //solo funciona al existir registros
+    {
          Nodo_User temp = inicio;
          while(temp != null){
-             if(temp.getUser().equals(username)){
+             if(temp.getEmail().equals(email)){
+                 return temp.getId();
+             }
+             temp = temp.getSiguiente();
+         }
+         return 0;
+    }
+   
+    public boolean userExists(String email){
+         Nodo_User temp = inicio;
+         while(temp != null){
+             if(temp.getEmail().equals(email)){
                  return true;
              }
              temp = temp.getSiguiente();
@@ -71,10 +77,10 @@ public class Lista_User
          return false;
      }
      
-    public String getPasswordForUser(String username){
+    public String getPasswordForUser(String email){
         Nodo_User temp = inicio;
         while(temp != null){
-            if(temp.getUser().equals(username)){
+            if(temp.getEmail().equals(email)){
                return temp.getPassword();
             }
             temp = temp.getSiguiente();
