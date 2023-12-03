@@ -1,6 +1,7 @@
 package banbajio;
 
 import InternalFrames.Modificar_Usuario;
+import InternalFrames.Recordatorios;
 import Listas.Lista_Movimiento;
 import Listas.Lista_User;
 import Listas.Pila_Tarjeta;
@@ -158,8 +159,8 @@ public class Menu extends javax.swing.JFrame {
         btnClose = new javax.swing.JMenuItem();
         btnDevInfo = new javax.swing.JMenu();
         btnInformacion = new javax.swing.JMenuItem();
-        btnRecordatorios = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        btnMenuRecordatorios = new javax.swing.JMenu();
+        btnRecordatorios = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -789,12 +790,17 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu.add(btnDevInfo);
 
-        btnRecordatorios.setText("Recordatorios");
+        btnMenuRecordatorios.setText("Recordatorios");
 
-        jMenuItem1.setText("Notas");
-        btnRecordatorios.add(jMenuItem1);
+        btnRecordatorios.setText("Notas");
+        btnRecordatorios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRecordatoriosActionPerformed(evt);
+            }
+        });
+        btnMenuRecordatorios.add(btnRecordatorios);
 
-        jMenu.add(btnRecordatorios);
+        jMenu.add(btnMenuRecordatorios);
 
         setJMenuBar(jMenu);
 
@@ -952,6 +958,11 @@ public class Menu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnEliminarMovimientoActionPerformed
 
+    private void btnRecordatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecordatoriosActionPerformed
+        Recordatorios recordatorios = new Recordatorios();
+        recordatorios.setVisible(true); 
+    }//GEN-LAST:event_btnRecordatoriosActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarMovimiento;
@@ -961,10 +972,11 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu btnDevInfo;
     private javax.swing.JButton btnEliminarMovimiento;
     private javax.swing.JMenuItem btnInformacion;
+    private javax.swing.JMenu btnMenuRecordatorios;
     private javax.swing.JButton btnModificarUsuario;
     private javax.swing.JButton btnMostrarGastos;
     private javax.swing.JButton btnMostrarIngresos;
-    private javax.swing.JMenu btnRecordatorios;
+    private javax.swing.JMenuItem btnRecordatorios;
     private javax.swing.JMenu btnSalir;
     private javax.swing.JButton btn_Formulario;
     private javax.swing.JButton btn_agregar_inv;
@@ -997,7 +1009,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JMenuBar jMenu;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
