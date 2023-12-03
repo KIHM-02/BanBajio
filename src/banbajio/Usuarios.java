@@ -1,5 +1,6 @@
 package banbajio;
 
+import Listas.Lista_Movimiento;
 import Listas.Lista_User;
 import Listas.Pila_Tarjeta;
 import java.awt.Color;
@@ -10,6 +11,8 @@ import javax.swing.JPanel;
 
 public class Usuarios extends javax.swing.JFrame 
 {
+    protected Lista_Movimiento listaMovimiento = new Lista_Movimiento();
+    
     protected Lista_User lista;
     protected Pila_Tarjeta pila;
     private int id;
@@ -636,7 +639,7 @@ public class Usuarios extends javax.swing.JFrame
                 
                 id = lista.getUserId(enteredEmail);
                 
-                Menu menu = new Menu(this, lista, pila, id);
+                Menu menu = new Menu(this, lista, pila, listaMovimiento, id);
                 menu.setVisible(true);
                 //this.dispose();     
                 this.setVisible(false);
