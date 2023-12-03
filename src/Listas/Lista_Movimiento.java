@@ -98,7 +98,7 @@ public class Lista_Movimiento
         return idMov;
     }
     
-    public DefaultTableModel setModelo(DefaultTableModel modeloMovimientos, String tipoMovimiento)
+    public DefaultTableModel setModelo(DefaultTableModel modeloMovimientos, String tipoMovimiento, int userId)
     {
         Nodo_Movimiento temp;
         
@@ -115,7 +115,7 @@ public class Lista_Movimiento
             {
                 String[] datos = new String[4];
                 
-                if(temp.getMovimiento().equals(tipoMovimiento))
+                if(temp.getId() == userId && temp.getMovimiento().equals(tipoMovimiento))
                 {
                     datos[0] = String.valueOf(temp.getMovId());
                     datos[1] = temp.getMovimiento();
