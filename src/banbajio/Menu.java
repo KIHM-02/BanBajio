@@ -88,7 +88,7 @@ public class Menu extends javax.swing.JFrame {
         modelMovimientos.setColumnIdentifiers(encabezado);
         tabla_movimientos.setModel(modelMovimientos);
         
-        modelMovimientos = listaMovimiento.setModelo(modelMovimientos, tipoMovimiento);
+        modelMovimientos = listaMovimiento.setModelo(modelMovimientos, tipoMovimiento, id);
         tabla_movimientos.setModel(modelMovimientos);
     }
     
