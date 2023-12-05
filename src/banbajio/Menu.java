@@ -5,16 +5,19 @@ import InternalFrames.Recordatorios;
 import Listas.Lista_Movimiento;
 import Listas.Lista_User;
 import Listas.Pila_Tarjeta;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 public class Menu extends javax.swing.JFrame {
-
     private Usuarios usuarios; 
     private Pila_Tarjeta pila;
     private int id;
     private Lista_User lista;
+    
+    private DefaultTableModel model;
+    private int numeroFila = 1;
     
     //Seccion de modelos para tablas
     //1) Tabla Menu (movimientos)
@@ -25,6 +28,7 @@ public class Menu extends javax.swing.JFrame {
             Lista_Movimiento listaMovimiento, int id) 
     {
         initComponents();
+        setIconImage(new ImageIcon(getClass().getResource("/Icon/logotipo.png")).getImage());
         this.setLocationRelativeTo(null);
         
         hidePanel(panel_mov, true);
@@ -38,7 +42,12 @@ public class Menu extends javax.swing.JFrame {
         this.listaMovimiento = listaMovimiento;
         this.id = id;
         
+        model = (DefaultTableModel) jTable1.getModel();
+        
         verifyCards();
+        
+        txtA_inv.setLineWrap(true);
+        txtA_inv.setWrapStyleWord(true);
     }
 
     public void verifyCards()
@@ -59,7 +68,6 @@ public class Menu extends javax.swing.JFrame {
         btn_inversiones.setEnabled(state);
         btn_cuentabanco.setEnabled(state);
         btn_menu.setEnabled(state);
-        btn_prestamos.setEnabled(state);
           
         hidePanel(panel_mov, state);
         hidePanel(panel_usuario, false);
@@ -147,7 +155,6 @@ public class Menu extends javax.swing.JFrame {
         btn_usuario = new javax.swing.JButton();
         btn_cuentabanco = new javax.swing.JButton();
         btn_inversiones = new javax.swing.JButton();
-        btn_prestamos = new javax.swing.JButton();
         btn_conversion = new javax.swing.JButton();
         btn_Formulario = new javax.swing.JButton();
         panel_saldo = new javax.swing.JPanel();
@@ -170,26 +177,34 @@ public class Menu extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Número", "Tipo de inversión", "Rendimiento", "Proyección"
             }
         ));
+        jTable1.setEnabled(false);
         jScrollPane2.setViewportView(jTable1);
 
         btn_agregar_inv.setBackground(new java.awt.Color(183, 112, 255));
         btn_agregar_inv.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_agregar_inv.setText("AGREGAR");
         btn_agregar_inv.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btn_agregar_inv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_agregar_invActionPerformed(evt);
+            }
+        });
 
         btn_eliminar_inv.setBackground(new java.awt.Color(183, 112, 255));
         btn_eliminar_inv.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_eliminar_inv.setText("ELIMINAR");
         btn_eliminar_inv.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btn_eliminar_inv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_eliminar_invActionPerformed(evt);
+            }
+        });
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel20.setText("Proyección");
@@ -210,41 +225,47 @@ public class Menu extends javax.swing.JFrame {
             panel_inversionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_inversionLayout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_inversionLayout.createSequentialGroup()
                 .addGroup(panel_inversionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
                     .addGroup(panel_inversionLayout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addGroup(panel_inversionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblRendimiento)
-                            .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_agregar_inv, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_eliminar_inv, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(combox_proyeccion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane3)))
-                .addContainerGap())
+                            .addComponent(combox_proyeccion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_agregar_inv, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_eliminar_inv, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panel_inversionLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel20)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panel_inversionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblRendimiento)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(47, 47, 47))
         );
         panel_inversionLayout.setVerticalGroup(
             panel_inversionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_inversionLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
                 .addGroup(panel_inversionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_inversionLayout.createSequentialGroup()
+                        .addGap(82, 82, 82)
                         .addComponent(jLabel20)
-                        .addGap(27, 27, 27)
-                        .addComponent(lblRendimiento)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(combox_proyeccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btn_agregar_inv, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(btn_eliminar_inv, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(59, 59, 59))
+                        .addGap(39, 39, 39))
                     .addGroup(panel_inversionLayout.createSequentialGroup()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(36, Short.MAX_VALUE))))
+                        .addGap(0, 23, Short.MAX_VALUE)
+                        .addComponent(lblRendimiento)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(59, 59, 59))
         );
 
         getContentPane().add(panel_inversion, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 105, -1, -1));
@@ -648,12 +669,6 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        btn_prestamos.setBackground(new java.awt.Color(255, 51, 102));
-        btn_prestamos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btn_prestamos.setForeground(new java.awt.Color(255, 255, 255));
-        btn_prestamos.setText("Préstamos");
-        btn_prestamos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
         btn_conversion.setBackground(new java.awt.Color(255, 51, 102));
         btn_conversion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn_conversion.setForeground(new java.awt.Color(255, 255, 255));
@@ -689,7 +704,6 @@ public class Menu extends javax.swing.JFrame {
             .addComponent(btn_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_cuentabanco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_inversiones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btn_prestamos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_conversion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_Formulario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -707,12 +721,10 @@ public class Menu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_inversiones, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_prestamos, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_conversion, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_Formulario, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 201, Short.MAX_VALUE)
                 .addComponent(btn_app, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
         );
@@ -953,7 +965,7 @@ public class Menu extends javax.swing.JFrame {
         catch (Exception e) 
         {
             System.out.println(e);
-            JOptionPane.showMessageDialog(null, "Se cancelo la operacion");
+            JOptionPane.showInputDialog(null, "¿Que tipo de inversion le gustaria hacer?: ");
         }
         
     }//GEN-LAST:event_btnEliminarMovimientoActionPerformed
@@ -962,6 +974,30 @@ public class Menu extends javax.swing.JFrame {
         Recordatorios recordatorios = new Recordatorios();
         recordatorios.setVisible(true); 
     }//GEN-LAST:event_btnRecordatoriosActionPerformed
+
+    private void btn_agregar_invActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregar_invActionPerformed
+       String tipoInversion = JOptionPane.showInputDialog(null, "¿Qué tipo de inversión le gustaría hacer?", "Tipo de inversión", JOptionPane.QUESTION_MESSAGE);
+       String rendimiento = txtA_inv.getText();
+       String proyeccion = combox_proyeccion.getSelectedItem().toString();
+
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+
+        // Insertar una nueva fila en la parte superior de la tabla
+        model.insertRow(0, new Object[]{numeroFila++, tipoInversion, rendimiento, proyeccion});
+    }//GEN-LAST:event_btn_agregar_invActionPerformed
+
+    private void btn_eliminar_invActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminar_invActionPerformed
+        int confirmacion = JOptionPane.showConfirmDialog(null, "¿Estas seguro de eliminar?","Confirmar Eliminacion",JOptionPane.YES_NO_OPTION);
+        
+        if(confirmacion == JOptionPane.YES_OPTION){
+            String filaEliminar = JOptionPane.showInputDialog(null, "Ingrese el numero en base a la orden de fila a eliminar: ","Eliminar fila",JOptionPane.QUESTION_MESSAGE);
+            
+            int numeroFila = Integer.parseInt(filaEliminar);
+            
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.removeRow(numeroFila - 1);
+        }
+    }//GEN-LAST:event_btn_eliminar_invActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -986,7 +1022,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton btn_eliminar_inv;
     private javax.swing.JButton btn_inversiones;
     private javax.swing.JButton btn_menu;
-    private javax.swing.JButton btn_prestamos;
     private javax.swing.JButton btn_usuario;
     private javax.swing.JCheckBox chbMostrarPassword;
     private javax.swing.JComboBox<String> combox_proyeccion;
