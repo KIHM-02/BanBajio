@@ -6,6 +6,7 @@ import Listas.Pila_Tarjeta;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -20,6 +21,7 @@ public class Usuarios extends javax.swing.JFrame
     public Usuarios(Lista_User lista, Pila_Tarjeta pila) 
     {
         initComponents();
+        setIconImage(new ImageIcon(getClass().getResource("/Icon/logotipo.png")).getImage());
         getRootPane().setDefaultButton(btnLogin);
         
         txtPassLogin.addActionListener(new ActionListener(){
