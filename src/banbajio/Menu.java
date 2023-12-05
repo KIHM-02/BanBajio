@@ -121,6 +121,7 @@ public class Menu extends javax.swing.JFrame {
         btnMostrarGastos = new javax.swing.JButton();
         btnAgregarMovimiento = new javax.swing.JButton();
         btnEliminarMovimiento = new javax.swing.JButton();
+        btnMostrarDescripcion = new javax.swing.JButton();
         panel_c_banco = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -337,6 +338,16 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        btnMostrarDescripcion.setBackground(new java.awt.Color(183, 112, 255));
+        btnMostrarDescripcion.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnMostrarDescripcion.setText("BUSCAR");
+        btnMostrarDescripcion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnMostrarDescripcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarDescripcionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel_movLayout = new javax.swing.GroupLayout(panel_mov);
         panel_mov.setLayout(panel_movLayout);
         panel_movLayout.setHorizontalGroup(
@@ -348,13 +359,16 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(panel_movLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(btnMostrarIngresos, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addComponent(btnMostrarGastos, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
-                .addComponent(btnAgregarMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panel_movLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnMostrarDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panel_movLayout.createSequentialGroup()
+                        .addComponent(btnMostrarGastos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(27, 27, 27)
+                        .addComponent(btnAgregarMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(26, 26, 26)
                 .addComponent(btnEliminarMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         panel_movLayout.setVerticalGroup(
             panel_movLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -367,7 +381,9 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(btnMostrarGastos, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAgregarMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEliminarMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(105, 105, 105))
+                .addGap(18, 18, 18)
+                .addComponent(btnMostrarDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52))
         );
 
         getContentPane().add(panel_mov, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 105, 600, 595));
@@ -825,10 +841,23 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_conversionActionPerformed
 
     private void btn_menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_menuActionPerformed
+        double saldo;
+        
         hidePanel(panel_mov, true);
         hidePanel(panel_usuario, false);
         hidePanel(panel_c_banco, false);
         hidePanel(panel_inversion, false);
+        
+        saldo = listaMovimiento.getSaldoTotal(id);
+        
+        if(saldo == 0)
+        {
+            lblSaldoTotal.setText("$0.00");
+        }
+        else
+        {
+            lblSaldoTotal.setText("$"+saldo);
+        }
     }//GEN-LAST:event_btn_menuActionPerformed
 
     private void btn_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_usuarioActionPerformed
@@ -999,6 +1028,15 @@ public class Menu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_eliminar_invActionPerformed
 
+    private void btnMostrarDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarDescripcionActionPerformed
+        String description;
+        int idMov  = Integer.parseInt(JOptionPane.showInputDialog(this, "Ingrese la posicion del movimiento: "));
+        
+        description = listaMovimiento.displayDescription(idMov, id);
+        
+        JOptionPane.showMessageDialog(this, "Descripcion del movimento: \n"+description);
+    }//GEN-LAST:event_btnMostrarDescripcionActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarMovimiento;
@@ -1010,6 +1048,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnInformacion;
     private javax.swing.JMenu btnMenuRecordatorios;
     private javax.swing.JButton btnModificarUsuario;
+    private javax.swing.JButton btnMostrarDescripcion;
     private javax.swing.JButton btnMostrarGastos;
     private javax.swing.JButton btnMostrarIngresos;
     private javax.swing.JMenuItem btnRecordatorios;

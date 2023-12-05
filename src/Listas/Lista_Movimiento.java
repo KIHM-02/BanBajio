@@ -131,4 +131,56 @@ public class Lista_Movimiento
         
         return modeloMovimientos;
     }
+    
+    public double getSaldoTotal(int userId)
+    {
+        double saldo = 0;
+        Nodo_Movimiento temp = inicio;
+        
+        if(!isEmpty())
+        {
+            while(temp != null)
+            {
+                if(temp.getId() == userId && temp.getMovimiento().equals("Ingresos"))
+                {
+                    saldo += temp.getCantidad();
+                }
+                else
+                {
+                    saldo -= temp.getCantidad();
+                }
+                temp = temp.getSiguiente();
+            }
+        }
+        System.out.println("El saldo es: "+saldo);
+        return saldo;
+    }
+    
+    public String displayDescription(int idMov, int userId)
+    {
+        Nodo_Movimiento temp;
+        String description = "No existe";
+        
+        if(isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "No hay movimientos registrados",
+                "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
+        else
+        {
+            temp = inicio;
+            
+            while(temp != null)
+            {   
+                if(temp.getId() == userId && temp.getMovId() == idMov)
+                {
+                    description = temp.getDescripcion();
+                }
+                
+                temp = temp.getSiguiente();
+            }
+        }
+        
+        return description;
+    }
 }
